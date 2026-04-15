@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="src/css/style.css"/>
+  <script src="src/script/script.js" defer></script>
+   <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/imagens/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/imagens/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/imagens/favicon-16x16.png"
+    />
+    <link rel="icon" href="assets/imagens/favicon.ico" />
+    <link rel="manifest" href="assets/imagens/site.webmanifest" />
+  <!-- SEO -->
+  <title>Daniel Quevedo — Analista de Dados · Power BI & Automação · Sorocaba-SP</title>
+  <meta name="description" content="Daniel Quevedo é analista de dados com foco em Power Platform. Constrói dashboards que gestores usam, automações que eliminam retrabalho e apps que resolvem problemas operacionais reais."/>
+  <meta name="author" content="Daniel Quevedo"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://danielquevedo.dev/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://danielquevedo.dev/"/>
+  <meta property="og:title"       content="Daniel Quevedo — Analista de Dados · Power BI & Automação"/>
+  <meta property="og:description" content="Dashboards que gestores usam. Automações que eliminam retrabalho. Soluções construídas para o problema certo."/>
+  <meta property="og:image"       content="https://danielquevedo.dev/assets/images/og-cover.jpg"/>
+  <meta property="og:locale"      content="pt_BR"/>
+  <meta property="og:site_name"   content="Daniel Quevedo · Analista de Dados"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Daniel Quevedo — Analista de Dados · Power BI & Automação"/>
+  <meta name="twitter:description" content="Dashboards que gestores usam. Automações que eliminam retrabalho. Soluções construídas para o problema certo."/>
+  <meta name="twitter:image"       content="https://danielquevedo.dev/assets/images/og-cover.jpg"/>
+
+  <meta name="theme-color" content="#000000"/>
+  <meta name="color-scheme" content="dark"/>
+
+  <!-- Fontes non-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  </noscript>
+
+
+</head>
+<body>
+
+  <!-- INTRO -->
+  <div id="js-intro" class="intro" aria-hidden="true" role="presentation">
+    <div class="intro__wrap">
+      <div class="intro__line"><span>DANIEL QUEVEDO</span></div>
+      <div class="intro__line"><span>DATA ANALYST</span></div>
+      <div class="intro__bar"></div>
+      <div class="intro__sub">Sorocaba-SP · Brasil · 2026</div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="js-cursor" class="cursor" aria-hidden="true"></div>
+
+  <!-- DOTS DE NAVEGAÇÃO -->
+  <nav class="nav-dots" id="js-dots" aria-label="Ir para seção">
+    <button class="nav-dot nav-dot--active" data-scroll-to="hero"      title="Início"    aria-label="Início"></button>
+    <button class="nav-dot"                 data-scroll-to="sobre"     title="Sobre"     aria-label="Sobre"></button>
+    <button class="nav-dot"                 data-scroll-to="abordagem" title="Abordagem" aria-label="Abordagem"></button>
+    <button class="nav-dot"                 data-scroll-to="projetos"  title="Projetos"  aria-label="Projetos"></button>
+    <button class="nav-dot"                 data-scroll-to="stack"     title="Stack"     aria-label="Stack"></button>
+    <button class="nav-dot"                 data-scroll-to="contato"   title="Contato"   aria-label="Contato"></button>
+  </nav>
+
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-bar__fill" id="js-progress-fill"></div>
+  </div>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="js-mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <button class="mobile-menu__close" id="js-menu-close" aria-label="Fechar menu">✕</button>
+    <nav class="mobile-menu__nav" aria-label="Navegação principal">
+      <button class="mobile-menu__link" data-scroll-to="sobre">
+        <span>Sobre</span><span class="mobile-menu__link-num" aria-hidden="true">01</span>
+      </button>
+      <button class="mobile-menu__link" data-scroll-to="abordagem">
+        <span>Abordagem</span><span class="mobile-menu__link-num" aria-hidden="true">02</span>
+      </button>
+      <button class="mobile-menu__link" data-scroll-to="projetos">
+        <span>Projetos</span><span class="mobile-menu__link-num" aria-hidden="true">03</span>
+      </button>
+      <button class="mobile-menu__link" data-scroll-to="stack">
+        <span>Stack</span><span class="mobile-menu__link-num" aria-hidden="true">04</span>
+      </button>
+    </nav>
+    <button class="mobile-menu__cta" data-scroll-to="contato">
+      Vamos conversar
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="mobile-menu__footer" aria-hidden="true">
+      <span>© 2026 Daniel Quevedo</span>
+      <span>Power BI · Automação</span>
+    </div>
+  </div>
+
+  <!-- TOPBAR -->
+  <header class="topbar" id="js-topbar" role="banner">
+    <div class="container topbar__inner">
+      <a href="#hero" class="logo" aria-label="Daniel Quevedo — Início">
+        <div class="logo__text">DQ<b>.</b></div>
+        <span class="logo__sub">Data Analyst</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <button class="nav-desktop__link" data-scroll-to="sobre">Sobre</button>
+        <button class="nav-desktop__link" data-scroll-to="abordagem">Abordagem</button>
+        <button class="nav-desktop__link" data-scroll-to="projetos">Projetos</button>
+        <button class="nav-desktop__link" data-scroll-to="stack">Stack</button>
+        <button class="nav-desktop__link nav-desktop__cta" data-scroll-to="contato">Vamos conversar</button>
+      </nav>
+      <button class="hamburger" id="js-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="js-mobile-menu">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section id="hero" class="hero" data-section="hero" aria-label="Apresentação">
+
+      <div class="hero__bg" aria-hidden="true">
+        <img src="assets/imagens/topo.png"
+          alt="" width="1440" height="900"
+          loading="eager" decoding="async"
+          class="hero__bg-img" fetchpriority="high"
+        />
+      </div>
+
+      <div class="container hero__body">
+        <div class="hero__badge">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Disponível para oportunidades · Sorocaba-SP
+        </div>
+
+        <h1 class="hero__title">
+          DANIEL<br>QUEVEDO
+          <span class="hero__title-italic">dados com propósito</span>
+        </h1>
+
+        <div class="hero__below">
+          <p class="hero__desc">
+            Analista de dados com foco em <strong>Microsoft Power Platform</strong>.
+            Construo dashboards que gestores usam de verdade, automações que eliminam
+            trabalho repetitivo e apps que tornam o dado acessível a quem precisa.
+          </p>
+          <div class="hero__ctas">
+            <a href="#projetos" class="btn-primary">
+              Ver meus projetos
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#contato" class="btn-outline">Vamos conversar sobre dados</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Métricas -->
+      <div class="hero__metrics" role="list" aria-label="Números do trabalho">
+        <div class="hero-metric" role="listitem">
+          <div class="hero-metric__value" data-count="8" data-suf="+">0+</div>
+          <div class="hero-metric__label">Projetos<br>concluídos</div>
+        </div>
+        <div class="hero-metric" role="listitem">
+          <div class="hero-metric__value" data-count="4">0</div>
+          <div class="hero-metric__label">Dashboards<br>em uso</div>
+        </div>
+        <div class="hero-metric" role="listitem">
+          <div class="hero-metric__value"><em>−40%</em></div>
+          <div class="hero-metric__label">Tempo de processo<br>nos projetos</div>
+        </div>
+        <div class="hero-metric" role="listitem">
+          <div class="hero-metric__value" data-count="100" data-suf="%">0%</div>
+          <div class="hero-metric__label">Automações<br>ativas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SOBRE ═══════════════════════════════════════════════ -->
+    <section id="sobre" class="about" data-section="sobre" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__grid">
+
+          <div>
+            <div class="section-label" data-reveal>Quem sou</div>
+
+            <h2 class="about__heading" id="about-heading" data-reveal="left" style="transition-delay:80ms">
+              ANALISTA<br>DE DADOS
+              <em>orientado a resolver</em>
+            </h2>
+
+            <div class="about__text" data-reveal style="transition-delay:160ms">
+              <p>
+                Sou o Daniel. Trabalho com dados porque gosto de entender como as coisas
+                funcionam — e de encontrar onde um processo poderia ser mais claro,
+                mais rápido ou mais confiável. Meu foco é o ecossistema
+                <strong>Microsoft Power Platform</strong>: Power BI, Power Automate
+                e Power Apps.
+              </p>
+              <p>
+                Antes de abrir qualquer ferramenta, eu preciso entender o problema.
+                O que essa informação precisa suportar? Quem vai usar isso?
+                O que muda na prática quando a solução funciona?
+                É esse raciocínio que guia cada projeto.
+              </p>
+            </div>
+
+            <div class="about__features" data-reveal style="transition-delay:240ms">
+              <div class="feature">
+                <span class="feature__num">01</span>
+                <div>
+                  <div class="feature__title">Começo pelo problema</div>
+                  <div class="feature__desc">Antes de abrir o Power BI, entendo o processo. Construir a solução certa para o problema errado não resolve nada.</div>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature__num">02</span>
+                <div>
+                  <div class="feature__title">Estruturo antes de executar</div>
+                  <div class="feature__desc">Modelo de dados pensado antes do código. Isso evita retrabalho e deixa a solução mais fácil de manter depois.</div>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature__num">03</span>
+                <div>
+                  <div class="feature__title">Construo para quem vai usar</div>
+                  <div class="feature__desc">Um dashboard que ninguém abre é um projeto que não funcionou. Sempre penso em quem está do outro lado da tela.</div>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature__num">04</span>
+                <div>
+                  <div class="feature__title">Documento o resultado</div>
+                  <div class="feature__desc">Sempre registro o antes e o depois. Mesmo que simples, essa comparação mostra se a solução resolveu o problema de verdade.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ID Card -->
+          <div class="about__right" data-reveal="right">
+            <div class="id-card">
+              <div class="id-card__photo">
+                <img
+                  src="assets/imagens/hero.png"
+                  alt="Daniel Quevedo — Analista de Dados"
+                  width="360" height="480"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="id-card__info">
+                <div>
+                  <div class="id-card__name">Daniel Quevedo</div>
+                  <div class="id-card__role">Data Analyst · Power Platform</div>
+                </div>
+                <div class="id-card__status">
+                  <span class="id-card__status-dot" aria-hidden="true"></span>
+                  Disponível
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ABORDAGEM ═══════════════════════════════════════════ -->
+    <section id="abordagem" class="approach" data-section="abordagem" aria-labelledby="approach-heading">
+      <div class="container">
+
+        <div class="approach__header">
+          <div class="section-label" data-reveal>Como trabalho</div>
+          <h2 class="approach__heading" id="approach-heading" data-reveal="left" style="transition-delay:80ms">
+            DO PROBLEMA<br>À SOLUÇÃO
+            <em>sem pular etapas</em>
+          </h2>
+          <p class="approach__intro" data-reveal style="transition-delay:160ms">
+            A parte mais importante de qualquer projeto de dados
+            não é a ferramenta — é entender o que precisa ser resolvido.
+          </p>
+        </div>
+
+        <div class="approach__steps">
+
+          <div class="approach__step" data-reveal style="transition-delay:80ms">
+            <div class="approach__step-num" aria-hidden="true">01</div>
+            <div class="approach__step-body">
+              <div class="approach__step-tag">Entender</div>
+              <h3 class="approach__step-title">Qual decisão esse dado precisa suportar?</h3>
+              <p class="approach__step-text">
+                Converso com quem usa o processo antes de propor qualquer solução.
+                Entendo o fluxo atual, onde estão as fricções e qual é o resultado esperado
+                quando tudo funcionar bem.
+              </p>
+              <div class="approach__step-deliverable">
+                <span class="approach__step-deliverable-label">O que sai dessa etapa</span>
+                Clareza sobre o problema real, a métrica de sucesso e o escopo da solução
+              </div>
+            </div>
+          </div>
+
+          <div class="approach__step" data-reveal style="transition-delay:200ms">
+            <div class="approach__step-num" aria-hidden="true">02</div>
+            <div class="approach__step-body">
+              <div class="approach__step-tag">Estruturar</div>
+              <h3 class="approach__step-title">Modelo de dados antes de abrir ferramenta</h3>
+              <p class="approach__step-text">
+                Projeto o modelo, os relacionamentos e a lógica de transformação antes
+                de escrever uma fórmula DAX ou criar uma tela no Power Apps.
+                Isso poupa retrabalho e deixa o código mais limpo.
+              </p>
+              <div class="approach__step-deliverable">
+                <span class="approach__step-deliverable-label">O que sai dessa etapa</span>
+                Modelo de dados documentado, fontes mapeadas e lógica definida
+              </div>
+            </div>
+          </div>
+
+          <div class="approach__step" data-reveal style="transition-delay:320ms">
+            <div class="approach__step-num" aria-hidden="true">03</div>
+            <div class="approach__step-body">
+              <div class="approach__step-tag">Entregar e medir</div>
+              <h3 class="approach__step-title">A entrega inclui o antes e o depois</h3>
+              <p class="approach__step-text">
+                Implemento, testo com o usuário e documento. Ao final, comparo com a
+                linha de base definida na etapa 01. Mesmo que o resultado seja simples,
+                essa comparação é o que dá clareza sobre o valor gerado.
+              </p>
+              <div class="approach__step-deliverable">
+                <span class="approach__step-deliverable-label">O que sai dessa etapa</span>
+                Solução em uso, documentação e registro do antes vs. depois
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROJETOS ════════════════════════════════════════════ -->
+    <section id="projetos" data-section="projetos" aria-label="Projetos">
+
+      <!-- ── Projeto 01: PCM Dashboard ── -->
+      <div class="project project--1">
+        <div class="project__bg-number" aria-hidden="true">01</div>
+
+        <div class="project__inner container">
+          <div class="project__left" data-reveal>
+            <div>
+              <div class="project__index">Projeto 01 / 04</div>
+              <div class="project__category">Dashboard · Manutenção Industrial</div>
+              <h2 class="project__title">Dashboard<br>de Manutenção<br>PCM</h2>
+            </div>
+            <div>
+              <div class="project__context-label">Contexto</div>
+              <p class="project__context-text">
+                Setor industrial · gestão de manutenção preventiva e corretiva
+                · controle de horas e ordens de serviço feito em planilhas Excel
+              </p>
+            </div>
+            <div>
+              <div class="project__problem-label">O problema</div>
+              <p class="project__problem-text">
+                Sem visibilidade consolidada das ordens abertas, backlog acumulado
+                e horas consumidas por equipe. O relatório era montado manualmente
+                toda semana — o que tomava tempo e ainda chegava desatualizado.
+              </p>
+            </div>
+            <div class="project__chips" role="list" aria-label="Stack utilizado">
+              <span class="chip" role="listitem">Power BI</span>
+              <span class="chip" role="listitem">DAX</span>
+              <span class="chip" role="listitem">Power Query</span>
+              <span class="chip" role="listitem">Excel</span>
+              <span class="chip" role="listitem">SharePoint</span>
+            </div>
+          </div>
+
+          <div class="project__right" data-reveal="right" style="transition-delay:120ms">
+            <div>
+              <div class="project__solution-label">A solução</div>
+              <p class="project__solution-text">
+                Dashboard em modelo estrela com DAX: HH planejado vs. realizado,
+                backlog por criticidade e KPIs de produtividade por equipe.
+                Os dados são puxados do SharePoint automaticamente — sem planilha
+                manual no meio do caminho.
+              </p>
+              <div class="project__thinking" data-reveal style="transition-delay:160ms">
+                <div class="project__thinking-label">Raciocínio por trás</div>
+                <p class="project__thinking-text">
+                  A decisão mais importante foi estruturar o modelo de dados antes
+                  de criar qualquer visual. Com as relações certas definidas, os
+                  cálculos DAX ficaram simples e a manutenção futura, mais fácil.
+                </p>
+              </div>
+              <a class="project__cta-pill" href="https://github.com/SEU-USUARIO/dashboard-manutencao-pcm" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Dashboard de Manutenção PCM no GitHub (abre em nova aba)">
+                Ver projeto <span class="project__cta-arrow">↗</span>
+              </a>
+            </div>
+            <div class="project__result">
+              <div class="project__result-label">Resultado</div>
+              <span class="project__result-value" data-count-project="30" data-prefix="−&thinsp;" data-suffix="%">−&thinsp;30%</span>
+              <div class="project__result-desc">
+                no tempo de análise semanal · o gestor passou a ter visibilidade
+                diária do backlog sem precisar montar relatório manualmente
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Projeto 02: Inventário ── -->
+      <div class="project project--2">
+        <div class="project__bg-number" aria-hidden="true">02</div>
+
+        <div class="project__inner container">
+          <div class="project__left" data-reveal>
+            <div>
+              <div class="project__index">Projeto 02 / 04</div>
+              <div class="project__category">Sistema · Controle de Estoque</div>
+              <h2 class="project__title">Controle<br>de Estoque<br>em Tempo Real</h2>
+            </div>
+            <div>
+              <div class="project__context-label">Contexto</div>
+              <p class="project__context-text">
+                Almoxarifado industrial · controle feito em planilhas desconexas
+                · sem consulta de saldo em tempo real
+              </p>
+            </div>
+            <div>
+              <div class="project__problem-label">O problema</div>
+              <p class="project__problem-text">
+                Divergências de estoque eram descobertas apenas no inventário mensal.
+                Cada divergência gerava retrabalho de conferência e alinhamento
+                entre almoxarifado e compras. Ninguém conseguia consultar
+                o saldo atual sem acessar a planilha certa — que às vezes
+                estava desatualizada.
+              </p>
+            </div>
+            <div class="project__chips" role="list" aria-label="Stack utilizado">
+              <span class="chip" role="listitem">Power Apps</span>
+              <span class="chip" role="listitem">SharePoint</span>
+              <span class="chip" role="listitem">Power Automate</span>
+              <span class="chip" role="listitem">Power BI</span>
+            </div>
+          </div>
+
+          <div class="project__right" data-reveal="right" style="transition-delay:120ms">
+            <div>
+              <div class="project__solution-label">A solução</div>
+              <p class="project__solution-text">
+                App Power Apps com SharePoint como base de dados: registro de
+                entrada e saída, movimentação e consulta de saldo. Power Automate
+                enviando alerta no Teams quando item atinge nível mínimo.
+                Dashboard Power BI para visão de giro e ruptura.
+              </p>
+              <div class="project__thinking" data-reveal style="transition-delay:160ms">
+                <div class="project__thinking-label">Raciocínio por trás</div>
+                <p class="project__thinking-text">
+                  A escolha do SharePoint como banco de dados foi deliberada:
+                  manter tudo no ecossistema Microsoft facilitou a integração
+                  com o Power Automate e reduziu a curva de adoção do time.
+                </p>
+              </div>
+              <a class="project__cta-pill" href="https://github.com/SEU-USUARIO/controle-estoque-real-time" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Controle de Estoque no GitHub (abre em nova aba)">
+                Ver projeto <span class="project__cta-arrow">↗</span>
+              </a>
+            </div>
+            <div class="project__result">
+              <div class="project__result-label">Resultado</div>
+              <span class="project__result-value" data-count-project="60" data-prefix="−&thinsp;" data-suffix="%">−&thinsp;60%</span>
+              <div class="project__result-desc">
+                no tempo de atualização de estoque · zero divergências registradas
+                nos primeiros 90 dias de uso
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Projeto 03: ABC/XYZ ── -->
+      <div class="project project--3">
+        <div class="project__bg-number" aria-hidden="true">03</div>
+
+        <div class="project__inner container">
+          <div class="project__left" data-reveal>
+            <div>
+              <div class="project__index">Projeto 03 / 04</div>
+              <div class="project__category">Análise · Business Intelligence</div>
+              <h2 class="project__title">Análise<br>ABC / XYZ<br>Estratégica</h2>
+            </div>
+            <div>
+              <div class="project__context-label">Contexto</div>
+              <p class="project__context-text">
+                Operação com catálogo extenso de itens · reposição decidida
+                sem critério formal · todos os itens tratados com a mesma prioridade
+              </p>
+            </div>
+            <div>
+              <div class="project__problem-label">O problema</div>
+              <p class="project__problem-text">
+                Sem critério de priorização, o time despensava atenção igual
+                em itens críticos e itens de baixo impacto. A decisão de
+                reposição dependia mais da experiência individual de quem
+                comprava do que de uma análise estruturada.
+              </p>
+            </div>
+            <div class="project__chips" role="list" aria-label="Stack utilizado">
+              <span class="chip" role="listitem">Power BI</span>
+              <span class="chip" role="listitem">DAX</span>
+              <span class="chip" role="listitem">Power Query</span>
+              <span class="chip" role="listitem">Excel</span>
+            </div>
+          </div>
+
+          <div class="project__right" data-reveal="right" style="transition-delay:120ms">
+            <div>
+              <div class="project__solution-label">A solução</div>
+              <p class="project__solution-text">
+                Modelo ABC (valor de consumo) × XYZ (variabilidade de demanda)
+                em Power BI com segmentação automática via DAX. Nove quadrantes
+                de decisão para guiar a reposição, com filtros por categoria,
+                fornecedor e período.
+              </p>
+              <div class="project__thinking" data-reveal style="transition-delay:160ms">
+                <div class="project__thinking-label">Raciocínio por trás</div>
+                <p class="project__thinking-text">
+                  O maior desafio foi a modelagem DAX para classificação dinâmica:
+                  cada item pode mudar de categoria conforme o período selecionado.
+                  Resolver isso sem travar o relatório foi o aprendizado central desse projeto.
+                </p>
+              </div>
+              <a class="project__cta-pill" href="https://github.com/SEU-USUARIO/analise-abc-xyz" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Análise ABC/XYZ no GitHub (abre em nova aba)">
+                Ver projeto <span class="project__cta-arrow">↗</span>
+              </a>
+            </div>
+            <div class="project__result">
+              <div class="project__result-label">Resultado</div>
+              <span class="project__result-value" style="font-size:clamp(3.5rem,7vw,9rem)">PARETO</span>
+              <div class="project__result-desc">
+                a análise confirmou o princípio — poucos itens concentravam
+                a maior parte do valor · reposição passou a ter critério objetivo
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Projeto 04: Automação de Aprovações ── -->
+      <div class="project project--4">
+        <div class="project__bg-number" aria-hidden="true">04</div>
+
+        <div class="project__inner container">
+          <div class="project__left" data-reveal>
+            <div>
+              <div class="project__index">Projeto 04 / 04</div>
+              <div class="project__category">Automação · Power Platform</div>
+              <h2 class="project__title">Automação<br>de Fluxos<br>e Aprovações</h2>
+            </div>
+            <div>
+              <div class="project__context-label">Contexto</div>
+              <p class="project__context-text">
+                Processo de compras com múltiplos aprovadores · aprovação
+                por e-mail sem rastreabilidade · atrasos frequentes por
+                ausência de resposta
+              </p>
+            </div>
+            <div>
+              <div class="project__problem-label">O problema</div>
+              <p class="project__problem-text">
+                Aprovações por e-mail sem controle: era difícil saber em que
+                etapa cada requisição estava, quem ainda precisava aprovar
+                e quanto tempo estava parado. Compras urgentes ficavam travadas
+                esperando uma resposta que ninguém sabia quem deveria dar.
+              </p>
+            </div>
+            <div class="project__chips" role="list" aria-label="Stack utilizado">
+              <span class="chip" role="listitem">Power Automate</span>
+              <span class="chip" role="listitem">SharePoint</span>
+              <span class="chip" role="listitem">Teams</span>
+              <span class="chip" role="listitem">Outlook</span>
+            </div>
+          </div>
+
+          <div class="project__right" data-reveal="right" style="transition-delay:120ms">
+            <div>
+              <div class="project__solution-label">A solução</div>
+              <p class="project__solution-text">
+                Fluxo Power Automate com roteamento automático por valor e categoria,
+                notificações no Teams com link direto para aprovação, escalation
+                automático após prazo sem resposta e registro completo no SharePoint
+                — rastreabilidade do início ao fim, sem intervenção manual.
+              </p>
+              <div class="project__thinking" data-reveal style="transition-delay:160ms">
+                <div class="project__thinking-label">Raciocínio por trás</div>
+                <p class="project__thinking-text">
+                  O escalation automático foi a decisão de design mais importante:
+                  sem ele, o fluxo resolveria a rastreabilidade mas não o atraso.
+                  Com ele, o processo continua mesmo sem resposta manual.
+                </p>
+              </div>
+              <a class="project__cta-pill" href="https://github.com/SEU-USUARIO/automacao-fluxos-aprovacoes" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Automação de Aprovações no GitHub (abre em nova aba)">
+                Ver projeto <span class="project__cta-arrow">↗</span>
+              </a>
+            </div>
+            <div class="project__result">
+              <div class="project__result-label">Resultado</div>
+              <span class="project__result-value" data-count-project="100" data-suffix="%">100%</span>
+              <div class="project__result-desc">
+                das aprovações passaram a ter rastreabilidade · fim das
+                aprovações perdidas em e-mail sem resposta
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══ STACK ════════════════════════════════════════════════ -->
+    <section id="stack" class="skills" data-section="stack" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="skills__grid">
+
+          <div class="skills__left">
+            <div class="section-label" data-reveal>Ferramentas</div>
+            <h2 class="skills__heading" id="skills-heading" data-reveal style="transition-delay:80ms">
+              STACK<em>em uso</em>
+            </h2>
+            <p class="skills__note" data-reveal style="transition-delay:160ms">
+              Ferramentas que usei em projetos reais. Os níveis refletem
+              uso prático — não certificação, não tutorial.
+            </p>
+            <div class="tag-cloud" data-reveal style="transition-delay:240ms" aria-label="Domínios de trabalho">
+              <span class="tag">Gestão de estoque</span>
+              <span class="tag">KPIs operacionais</span>
+              <span class="tag">Análise ABC/XYZ</span>
+              <span class="tag">Manutenção PCM</span>
+              <span class="tag">Mapeamento de processos</span>
+              <span class="tag">Storytelling com dados</span>
+              <span class="tag">Gestão de backlog</span>
+              <span class="tag">Modelagem dimensional</span>
+            </div>
+          </div>
+
+          <div class="skills__right" id="js-skills">
+
+            <!-- Grupo 1 -->
+            <div class="skill-group" data-reveal style="transition-delay:80ms">
+              <div class="skill-group__header">
+                <div class="skill-group__icon" aria-hidden="true">◈</div>
+                <div class="skill-group__content">
+                  <div class="skill-group__title">Power BI &amp; Analytics</div>
+                  <div class="skill-group__context">Usado nos 4 projetos · modelo estrela · DAX para KPIs e segmentação</div>
+                </div>
+              </div>
+              <div class="skill-rows">
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power BI Desktop</span>
+                    <span class="skill-row__level">Relatórios &amp; Visuais</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI Desktop — 85%">
+                    <div class="skill-row__fill" data-width="85"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">DAX</span>
+                    <span class="skill-row__level">Medidas &amp; Cálculos</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="DAX — 70%">
+                    <div class="skill-row__fill" data-width="70"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power Query (M)</span>
+                    <span class="skill-row__level">ETL &amp; Transformação</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" aria-label="Power Query — 73%">
+                    <div class="skill-row__fill" data-width="73"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Excel</span>
+                    <span class="skill-row__level">Análise &amp; Modelagem</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" aria-label="Excel — 83%">
+                    <div class="skill-row__fill" data-width="83"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 2 -->
+            <div class="skill-group" data-reveal style="transition-delay:160ms">
+              <div class="skill-group__header">
+                <div class="skill-group__icon" aria-hidden="true">⟁</div>
+                <div class="skill-group__content">
+                  <div class="skill-group__title">Automação &amp; Low-Code</div>
+                  <div class="skill-group__context">Projetos 02 e 04 · aprovações automáticas · alertas e registros em produção</div>
+                </div>
+              </div>
+              <div class="skill-rows">
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power Automate</span>
+                    <span class="skill-row__level">Fluxos &amp; Aprovações</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" aria-label="Power Automate — 73%">
+                    <div class="skill-row__fill" data-width="73"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power Apps</span>
+                    <span class="skill-row__level">Canvas Apps · Mobile</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" aria-label="Power Apps — 66%">
+                    <div class="skill-row__fill" data-width="66"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">SharePoint</span>
+                    <span class="skill-row__level">Listas &amp; Integração</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="SharePoint — 70%">
+                    <div class="skill-row__fill" data-width="70"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">SQL</span>
+                    <span class="skill-row__level">Consultas &amp; Joins</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="SQL — 42%">
+                    <div class="skill-row__fill" data-width="42"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTATO ════════════════════════════════════════════════ -->
+    <section id="contato" class="contact" data-section="contato" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact__grid">
+
+          <div>
+            <div class="section-label" data-reveal>Contato</div>
+            <h2 class="contact__heading" id="contact-heading" data-reveal style="transition-delay:80ms">
+              VAMOS<em>conversar<br>sobre dados?</em>
+            </h2>
+            <p class="contact__text" data-reveal style="transition-delay:160ms">
+              Estou aberto a oportunidades, projetos e conversas sobre
+              dados e automação. Se você tem um problema que envolve
+              Power Platform ou BI — ou só quer trocar uma ideia —
+              é só me chamar.
+            </p>
+
+            <!-- CTAs de contato -->
+            <div class="contact__cta-grid" data-reveal style="transition-delay:240ms">
+              <a href="mailto:danielquevedocorp@hotmail.com" class="contact__cta-card contact__cta-card--primary">
+                <div class="contact__cta-card-icon" aria-hidden="true">✉</div>
+                <div class="contact__cta-card-text">
+                  <strong>Aberto a oportunidades</strong>
+                  <span>Analista de dados · Power Platform · Sorocaba-SP</span>
+                </div>
+              </a>
+              <a href="mailto:danielquevedocorp@hotmail.com?subject=Projeto de dados" class="contact__cta-card">
+                <div class="contact__cta-card-icon" aria-hidden="true">↗</div>
+                <div class="contact__cta-card-text">
+                  <strong>Falar sobre um projeto</strong>
+                  <span>Power BI · Power Automate · Power Apps</span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/daniel-santos-quevedo-b93249295/" target="_blank" rel="noopener noreferrer" class="contact__cta-card">
+                <div class="contact__cta-card-icon" aria-hidden="true">↗</div>
+                <div class="contact__cta-card-text">
+                  <strong>Conectar no LinkedIn</strong>
+                  <span>Respondo em até 24h</span>
+                </div>
+              </a>
+              <a href="https://github.com/Daniel-S-Quevedo" target="_blank" rel="noopener noreferrer" class="contact__cta-card">
+                <div class="contact__cta-card-icon" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                </div>
+                <div class="contact__cta-card-text">
+                  <strong>Ver projetos no GitHub</strong>
+                  <span>Código · Repositórios · Projetos abertos</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div data-reveal="right" style="transition-delay:160ms">
+            <div class="contact__channels-label">Contato direto</div>
+
+            <a href="mailto:danielquevedocorp@hotmail.com" class="contact__email" aria-label="Enviar e-mail para Daniel Quevedo">
+              <span>danielquevedocorp@hotmail.com</span>
+              <span class="contact__email-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <div style="margin-top:48px">
+              <div class="contact__channels-label">Canais</div>
+
+              <a href="https://www.linkedin.com/in/daniel-santos-quevedo-b93249295/" class="contact__channel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (abre em nova aba)">
+                <div>
+                  <div class="contact__channel-sub">LinkedIn</div>
+                  <div class="contact__channel-name">Daniel Quevedo</div>
+                </div>
+                <span class="contact__channel-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a href="mailto:danielquevedocorp@hotmail.com" class="contact__channel" aria-label="E-mail">
+                <div>
+                  <div class="contact__channel-sub">E-mail</div>
+                  <div class="contact__channel-name">danielquevedocorp@hotmail.com</div>
+                </div>
+                <span class="contact__channel-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a href="https://github.com/Daniel-S-Quevedo" class="contact__channel" target="_blank" rel="noopener noreferrer" aria-label="GitHub (abre em nova aba)">
+                <div>
+                  <div class="contact__channel-sub">GitHub</div>
+                  <div class="contact__channel-name">Daniel S.Quevedo</div>
+                </div>
+                <span class="contact__channel-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <div class="contact__channel" style="cursor:default">
+                <div>
+                  <div class="contact__channel-sub">Localização</div>
+                  <div class="contact__channel-name">Sorocaba, SP — Brasil</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <footer class="site-footer" role="contentinfo">
+          <div class="footer-brand">
+            <span class="footer-brand__dot" aria-hidden="true"></span>
+            Daniel Quevedo
+          </div>
+          <p class="footer-copy">© 2026 · Power BI · Automação · Power Apps</p>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/src/script/script.js"defer></script>
+</body>
+</html>
