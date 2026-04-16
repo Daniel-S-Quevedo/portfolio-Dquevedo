@@ -3,7 +3,7 @@
 Transformando dados industriais em decisões estratégicas.
 
 🔗 **Acesse o portfólio:**
-👉 https://daniel-s-quevedo.github.io/portfolio2/
+👉 (https://daniel-s-quevedo.github.io/portfolio-Dquevedo/)
 
 ---
 
