@@ -2395,15 +2395,16 @@ ul {
 /* ══ PROJECTS GITHUB BANNER ══ */
 .projects__github-banner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
   margin: 0 var(--space-h, 48px);
-  padding: 28px 36px;
+  padding: 36px;
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 16px;
   background: rgba(255,255,255,.02);
-  flex-wrap: wrap;
 }
 
 .projects__github-banner-text {
@@ -2430,25 +2431,24 @@ ul {
 .projects__github-banner-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
-  padding: 12px 20px;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
   font-family: var(--font-sans);
-  font-size: .9rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.75);
+  font-size: .88rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.4);
   text-decoration: none;
   white-space: nowrap;
-  transition: background .2s, border-color .2s, color .2s;
+  transition: color .2s, gap .2s;
   flex-shrink: 0;
+  letter-spacing: .01em;
 }
 
 .projects__github-banner-btn:hover {
-  background: rgba(255,255,255,.1);
-  border-color: rgba(255,255,255,.22);
-  color: var(--color-white);
+  color: rgba(255,255,255,.85);
+  gap: 12px;
 }
 
 @media (max-width: 640px) {
@@ -2460,8 +2460,7 @@ ul {
   }
 
   .projects__github-banner-btn {
-    width: 100%;
-    justify-content: center;
+    align-self: flex-start;
   }
 }
 

@@ -354,74 +354,11 @@ function scrollToId(id) {
 /* ─── 11. FORMULÁRIO DE CONTATO ────────────────────────── */
 (function initContactForm() {
   onReady(() => {
-    const zone           = document.getElementById('js-attach-zone');
-    const input          = document.getElementById('cf-file');
-    const attachNameInput= document.getElementById('cf-attachment-name');
-    const idle           = document.getElementById('js-attach-idle');
-    const preview        = document.getElementById('js-attach-preview');
-    const nameEl         = document.getElementById('js-attach-name');
-    const sizeEl         = document.getElementById('js-attach-size');
-    const removeBtn      = document.getElementById('js-attach-remove');
-    const form           = document.getElementById('js-contact-form');
-    const noteEl         = document.getElementById('js-form-note');
-    const submitBtn      = document.getElementById('js-form-submit');
+    const form      = document.getElementById('js-contact-form');
+    const noteEl    = document.getElementById('js-form-note');
+    const submitBtn = document.getElementById('js-form-submit');
 
-    if (!zone || !input || !form) return;
-
-    function formatSize(bytes) {
-      if (bytes < 1024) return bytes + ' B';
-      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-    }
-
-    function showFile(file) {
-      nameEl.textContent = file.name;
-      sizeEl.textContent = formatSize(file.size);
-      if (attachNameInput) attachNameInput.value = file.name;
-      idle.hidden = true;
-      preview.hidden = false;
-      input.style.pointerEvents = 'none';
-    }
-
-    function clearFile() {
-      input.value = '';
-      input.style.pointerEvents = '';
-      if (attachNameInput) attachNameInput.value = 'Nenhum anexo';
-      idle.hidden = false;
-      preview.hidden = true;
-      zone.classList.remove('contact__attach--drag');
-    }
-
-    input.addEventListener('change', () => {
-      if (input.files && input.files[0]) showFile(input.files[0]);
-    });
-
-    removeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      clearFile();
-    });
-
-    zone.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
-    });
-
-    zone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      zone.classList.add('contact__attach--drag');
-    });
-
-    zone.addEventListener('dragleave', () => zone.classList.remove('contact__attach--drag'));
-
-    zone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      zone.classList.remove('contact__attach--drag');
-      const file = e.dataTransfer.files[0];
-      if (!file) return;
-      const dt = new DataTransfer();
-      dt.items.add(file);
-      input.files = dt.files;
-      showFile(file);
-    });
+    if (!form) return;
 
     // ── EmailJS config ── preencha com suas credenciais em emailjs.com
     const EMAILJS_PUBLIC_KEY  = 'hPQe8W-qDpmBMCsDb';
@@ -450,17 +387,15 @@ function scrollToId(id) {
       noteEl.textContent = 'Enviando…';
 
       window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        name:       name,
-        email:      email,
-        message:    message,
-        attachment: attachNameInput ? attachNameInput.value : 'Nenhum anexo',
-        reply_to:   email,
+        name:     name,
+        email:    email,
+        message:  message,
+        reply_to: email,
       })
       .then(() => {
         noteEl.textContent = 'Mensagem enviada! Entrarei em contato em breve.';
         noteEl.classList.add('contact__form-note--ok');
         form.reset();
-        clearFile();
         submitBtn.disabled = false;
       })
       .catch((err) => {
