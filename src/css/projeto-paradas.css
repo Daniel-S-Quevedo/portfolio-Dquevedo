@@ -59,6 +59,18 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  @keyframes _hero-bg-drift {
+    to { transform: translateY(80px) scale(1.05); }
+  }
+  .proj-hero__bg {
+    animation: _hero-bg-drift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 60%;
+  }
 }
 
 .proj-hero__bg::before {
