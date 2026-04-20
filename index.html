@@ -4,8 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="src/css/style.css"/>
+  <link rel="stylesheet" href="src/css/index-panel.css"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="src/script/script.js" defer></script>
+  <script src="src/script/index-panel.js" defer></script>
    <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -374,7 +376,7 @@
     <!-- ══ PROJETOS ════════════════════════════════════════════ -->
     <section id="projetos" data-section="projetos" aria-label="Projetos">
 
-      <!-- ── Projeto 01: PCM Dashboard ── -->
+      <!-- ── Projeto 01: Controle de Paradas Industriais ── -->
       <div class="project project--1">
         <div class="project__bg-number" aria-hidden="true">01</div>
 
@@ -382,30 +384,30 @@
           <div class="project__left" data-reveal>
             <div>
               <div class="project__index">Projeto 01 / 04</div>
-              <div class="project__category">Dashboard · Manutenção Industrial</div>
-              <h2 class="project__title">Dashboard<br>de Manutenção<br>PCM</h2>
+              <div class="project__category">Sistema · Controle Industrial</div>
+              <h2 class="project__title">Sistema de<br>Controle de<br>Paradas</h2>
             </div>
             <div>
               <div class="project__context-label">Contexto</div>
               <p class="project__context-text">
-                Setor industrial · gestão de manutenção preventiva e corretiva
-                · controle de horas e ordens de serviço feito em planilhas Excel
+                Ambiente fabril · apontamento de paradas feito em papel
+                · sem rastreabilidade por máquina ou operador
               </p>
             </div>
             <div>
               <div class="project__problem-label">O problema</div>
               <p class="project__problem-text">
-                Sem visibilidade consolidada das ordens abertas, backlog acumulado
-                e horas consumidas por equipe. O relatório era montado manualmente
-                toda semana — o que tomava tempo e ainda chegava desatualizado.
+                Cada minuto de parada não registrada era dado perdido.
+                O gestor não sabia o que parou, por quanto tempo, nem por quê —
+                só descobria no dia seguinte, quando o dado não servia mais para ação.
               </p>
             </div>
             <div class="project__chips" role="list" aria-label="Stack utilizado">
+              <span class="chip" role="listitem">Power Apps</span>
+              <span class="chip" role="listitem">SharePoint</span>
               <span class="chip" role="listitem">Power BI</span>
               <span class="chip" role="listitem">DAX</span>
-              <span class="chip" role="listitem">Power Query</span>
-              <span class="chip" role="listitem">Excel</span>
-              <span class="chip" role="listitem">SharePoint</span>
+              <span class="chip" role="listitem">Power Fx</span>
             </div>
           </div>
 
@@ -413,29 +415,29 @@
             <div>
               <div class="project__solution-label">A solução</div>
               <p class="project__solution-text">
-                Dashboard em modelo estrela com DAX: HH planejado vs. realizado,
-                backlog por criticidade e KPIs de produtividade por equipe.
-                Os dados são puxados do SharePoint automaticamente — sem planilha
-                manual no meio do caminho.
+                Canvas App em Power Apps com registro de paradas em menos de 10 segundos,
+                controle por máquina e operador, e histórico completo no SharePoint.
+                Dashboard Power BI com MTTR, disponibilidade por máquina e
+                tendências por turno — atualizado automaticamente.
               </p>
               <div class="project__thinking" data-reveal style="transition-delay:160ms">
                 <div class="project__thinking-label">Raciocínio por trás</div>
                 <p class="project__thinking-text">
-                  A decisão mais importante foi estruturar o modelo de dados antes
-                  de criar qualquer visual. Com as relações certas definidas, os
-                  cálculos DAX ficaram simples e a manutenção futura, mais fácil.
+                  A modelagem de dados no SharePoint foi definida antes de abrir o Power Apps.
+                  Relacionamentos claros entre Máquinas, Operadores e Paradas foi o que
+                  tornou o cálculo de MTTR no Power BI simples e confiável.
                 </p>
               </div>
-              <a class="project__cta-pill" href="https://github.com/SEU-USUARIO/dashboard-manutencao-pcm" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Dashboard de Manutenção PCM no GitHub (abre em nova aba)">
-                Ver projeto <span class="project__cta-arrow">↗</span>
+              <a class="project__cta-pill" href="projeto-paradas.html" aria-label="Ver case completo — Sistema de Controle de Paradas">
+                Ver case completo <span class="project__cta-arrow">↗</span>
               </a>
             </div>
             <div class="project__result">
               <div class="project__result-label">Resultado</div>
-              <span class="project__result-value" data-count-project="30" data-prefix="−&thinsp;" data-suffix="%">−&thinsp;30%</span>
+              <span class="project__result-value" data-count-project="100" data-suffix="%">100%</span>
               <div class="project__result-desc">
-                no tempo de análise semanal · o gestor passou a ter visibilidade
-                diária do backlog sem precisar montar relatório manualmente
+                de rastreabilidade · zero apontamentos perdidos · gestor passou
+                a acessar MTTR em tempo real sem depender de ninguém
               </div>
             </div>
           </div>
@@ -725,7 +727,7 @@
                 </div>
                 <div>
                   <div class="skill-row__header">
-                    <span class="skill-row__name">Power Query (M)</span>
+                    <span class="skill-row__name">Power Query </span>
                     <span class="skill-row__level">ETL &amp; Transformação</span>
                   </div>
                   <div class="skill-row__track" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" aria-label="Power Query — 73%">
@@ -911,6 +913,104 @@
     </section>
 
   </main>
+
+  <!-- ══ FLOATING SIDE PANEL (esquerda) ══════════════════════ -->
+  <div class="idx-panel__overlay" id="js-idx-overlay" aria-hidden="true"></div>
+
+  <button class="idx-panel-trigger" id="js-idx-trigger" aria-expanded="false" aria-controls="js-idx-panel" aria-label="Abrir painel de navegação e contato">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="2" fill="currentColor"/>
+      <circle cx="8" cy="3" r="1.5" fill="currentColor"/>
+      <circle cx="8" cy="13" r="1.5" fill="currentColor"/>
+    </svg>
+    Menu
+  </button>
+
+  <aside class="idx-panel" id="js-idx-panel" role="complementary" aria-label="Painel de acesso rápido">
+    <div class="idx-panel__header">
+      <span class="idx-panel__logo">Daniel Quevedo · Nav</span>
+      <button class="idx-panel__close" id="js-idx-close" aria-label="Fechar painel">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="idx-panel__body">
+
+      <p class="idx-panel__section-title">Ir para</p>
+
+      <nav class="idx-panel__nav" aria-label="Seções do portfólio">
+        <button class="idx-panel__nav-btn" data-idx-scroll="sobre">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M3 14c0-2.761 2.239-5 5-5s5 2.239 5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Sobre mim
+        </button>
+        <button class="idx-panel__nav-btn" data-idx-scroll="projetos">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="9" y="1" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="1" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="9" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          Projetos
+        </button>
+        <button class="idx-panel__nav-btn" data-idx-scroll="stack">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M2 5l6-3 6 3-6 3-6-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M2 8l6 3 6-3M2 11l6 3 6-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Stack / Habilidades
+        </button>
+        <button class="idx-panel__nav-btn" data-idx-scroll="contato">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Contato
+        </button>
+      </nav>
+
+      <div class="idx-panel__divider"></div>
+
+      <p class="idx-panel__section-title">Mensagem rápida</p>
+
+      <form class="idx-panel__form" id="js-idx-panel-form" novalidate>
+        <input
+          class="idx-panel__input"
+          type="text"
+          name="name"
+          placeholder="Seu nome"
+          autocomplete="name"
+          required
+        />
+        <input
+          class="idx-panel__input"
+          type="email"
+          name="email"
+          placeholder="Seu e-mail"
+          autocomplete="email"
+          required
+        />
+        <textarea
+          class="idx-panel__textarea"
+          name="message"
+          placeholder="Sua mensagem…"
+          required
+        ></textarea>
+        <button class="idx-panel__submit" type="submit" id="js-idx-panel-submit">
+          Enviar mensagem
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="idx-panel__note" id="js-idx-panel-note" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </aside>
 
 </body>
 </html>

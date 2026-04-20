@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="src/css/style.css"/>
+  <link rel="stylesheet" href="src/css/projeto-paradas.css"/>
+  <script src="src/script/script.js" defer></script>
+  <script src="src/script/projeto-paradas.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/imagens/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/imagens/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/imagens/favicon-16x16.png"/>
+  <link rel="icon" href="assets/imagens/favicon.ico"/>
+  <link rel="manifest" href="assets/imagens/site.webmanifest"/>
+
+  <title>Controle de Paradas Industriais — Case · Daniel Quevedo</title>
+  <meta name="description" content="Case: Sistema de Controle de Paradas Industriais em Power Apps e Power BI. Rastreabilidade total, registro em tempo real e dashboard operacional para gestão industrial."/>
+  <meta name="author" content="Daniel Quevedo"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="color-scheme" content="dark"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  </noscript>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div id="js-cursor" class="cursor" aria-hidden="true"></div>
+
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-bar__fill" id="js-progress-fill"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <header class="topbar" id="js-topbar" role="banner">
+    <div class="container topbar__inner">
+      <a href="index.html" class="logo" aria-label="Daniel Quevedo — Voltar ao portfólio">
+        <div class="logo__text">DQ<b>.</b></div>
+        <span class="logo__sub">Data Analyst</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span class="topbar-proj-label">Projeto · Power Platform</span>
+        <a href="index.html" class="topbar-back" aria-label="Voltar para o portfólio">
+          ← Portfólio
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ HERO ══════════════════════════════════════════════ -->
+    <section class="proj-hero" aria-label="Apresentação do projeto">
+
+      <div class="proj-hero__bg" aria-hidden="true"></div>
+
+      <div class="proj-hero__body">
+        <div class="proj-hero__badge">
+          <span class="proj-hero__badge-dot" aria-hidden="true"></span>
+          Projeto 05 · Power Apps · SharePoint · Power BI
+        </div>
+
+        <h1 class="proj-hero__title">
+          CONTROLE DE<br>PARADAS
+          <span class="proj-hero__title-sub">sistema industrial em tempo real</span>
+        </h1>
+
+        <div class="proj-hero__below">
+          <p class="proj-hero__desc">
+            App em <strong>Power Apps</strong> com rastreabilidade completa de paradas
+            industriais. Registro automático por máquina e operador,
+            e <strong>dashboard Power BI</strong> com MTTR e disponibilidade em tempo real.
+          </p>
+          <div class="hero__ctas">
+            <a href="#demo" class="btn-primary">
+              Ver demonstração
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#dashboard" class="btn-outline">Ver dashboard</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI strip -->
+      <div class="proj-kpi-strip">
+        <div class="proj-kpi-grid" role="list" aria-label="Indicadores do projeto">
+          <div class="proj-kpi-item" role="listitem">
+            <div class="proj-kpi-value" data-count-project="100" data-suffix="%">0%</div>
+            <div class="proj-kpi-label">Rastreabilidade<br>de paradas</div>
+          </div>
+          <div class="proj-kpi-item" role="listitem">
+            <div class="proj-kpi-value">−70%</div>
+            <div class="proj-kpi-label">Apontamentos<br>manuais</div>
+          </div>
+          <div class="proj-kpi-item" role="listitem">
+            <div class="proj-kpi-value">&lt;10s</div>
+            <div class="proj-kpi-label">Tempo de<br>registro no app</div>
+          </div>
+          <div class="proj-kpi-item" role="listitem">
+            <div class="proj-kpi-value">MTTR</div>
+            <div class="proj-kpi-label">Indicador central<br>do dashboard</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══ CONTEXTO ══════════════════════════════════════════ -->
+    <section id="contexto" class="proj-section" data-section="contexto" aria-labelledby="context-heading">
+      <div class="container">
+        <div class="proj-2col">
+
+          <!-- Esquerda -->
+          <div>
+            <div class="section-label" data-reveal>O Problema</div>
+            <h2 class="proj-heading" id="context-heading" data-reveal="left" style="transition-delay:80ms">
+              INDÚSTRIA SEM
+              <em>controle de paradas</em>
+            </h2>
+
+            <div data-reveal style="transition-delay:160ms">
+              <p class="proj-text">
+                Em ambientes industriais, cada minuto de parada não registrada é
+                um dado perdido — e <strong>dado perdido é decisão às cegas</strong>.
+                Sem visibilidade sobre o que parou, por quanto tempo e por quê,
+                a gestão não consegue priorizar manutenção, treinar operadores
+                ou reduzir inatividade de forma estruturada.
+              </p>
+              <p class="proj-text" style="margin-top:16px">
+                Esse projeto nasceu de uma necessidade real: substituir apontamento
+                manual em papel e planilha por um sistema integrado, rápido e confiável.
+                Simples o suficiente para o operador; completo o suficiente para o gestor.
+              </p>
+            </div>
+
+            <div class="about__features" data-reveal style="transition-delay:240ms">
+              <div class="feature">
+                <span class="feature__num">01</span>
+                <div>
+                  <div class="feature__title">Processo mapeado antes do app</div>
+                  <div class="feature__desc">Entender como o operador registrava manualmente foi o ponto de partida para a modelagem de dados no SharePoint.</div>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature__num">02</span>
+                <div>
+                  <div class="feature__title">SharePoint como banco de dados</div>
+                  <div class="feature__desc">Integração nativa com Power Apps e Power BI sem infraestrutura adicional — tudo dentro do ecossistema Microsoft.</div>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="feature__num">03</span>
+                <div>
+                  <div class="feature__title">App pensado para o chão de fábrica</div>
+                  <div class="feature__desc">Interface com poucos cliques. O operador inicia ou finaliza uma parada em menos de 10 segundos — mesmo com luva.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direita: cards de problema -->
+          <div data-reveal="right" style="transition-delay:120ms">
+            <div class="section-label">Pontos críticos identificados</div>
+            <div class="prob-cards">
+
+              <div class="prob-card">
+                <span class="prob-card__num">01</span>
+                <div>
+                  <div class="prob-card__title">Apontamento manual falho</div>
+                  <div class="prob-card__desc">Registros em papel geravam dados incompletos e inconsistências difíceis de rastrear retroativamente.</div>
+                </div>
+              </div>
+
+              <div class="prob-card">
+                <span class="prob-card__num">02</span>
+                <div>
+                  <div class="prob-card__title">Nenhuma visibilidade em tempo real</div>
+                  <div class="prob-card__desc">O gestor só sabia o que havia parado no dia seguinte — quando o dado já não servia para ação imediata.</div>
+                </div>
+              </div>
+
+              <div class="prob-card">
+                <span class="prob-card__num">03</span>
+                <div>
+                  <div class="prob-card__title">Ausência de dados para decisão</div>
+                  <div class="prob-card__desc">Sem histórico estruturado, não era possível calcular MTTR nem identificar máquinas críticas para manutenção preventiva.</div>
+                </div>
+              </div>
+
+              <div class="prob-card">
+                <span class="prob-card__num">04</span>
+                <div>
+                  <div class="prob-card__title">Rastreabilidade zero por operador</div>
+                  <div class="prob-card__desc">Não havia como cruzar paradas com turnos, máquinas ou operadores específicos — cada registro era um dado isolado.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SOLUÇÃO ════════════════════════════════════════════ -->
+    <section id="solucao" class="proj-section proj-section--alt" data-section="solucao" aria-labelledby="solution-heading">
+      <div class="container">
+
+        <div class="proj-2col proj-2col--end" style="margin-bottom:0">
+          <div>
+            <div class="section-label" data-reveal>A Solução</div>
+            <h2 class="proj-heading proj-heading--accent" id="solution-heading" data-reveal="left" style="transition-delay:80ms">
+              DO PAPEL AO<br>DADO ESTRUTURADO
+              <em>sem complicação para quem opera</em>
+            </h2>
+          </div>
+          <p class="proj-text" data-reveal style="transition-delay:120ms">
+            Sistema construído sobre <strong>Power Apps + SharePoint</strong>, integrado ao Power BI.
+            O operador registra em segundos. O dado flui automaticamente.
+            O gestor decide com número real.
+          </p>
+        </div>
+
+        <div class="sol-steps">
+
+          <div class="sol-step" data-reveal style="transition-delay:80ms">
+            <div class="sol-step__num" aria-hidden="true">01</div>
+            <div class="sol-step__tag">Mapeamento</div>
+            <h3 class="sol-step__title">Entender como a parada acontece na prática</h3>
+            <p class="sol-step__text">
+              Antes de abrir o Power Apps, mapeei o fluxo real: quem registra,
+              quando, quais dados são críticos e o que ficava perdido no processo atual.
+              O processo físico guiou o modelo de dados.
+            </p>
+            <div class="sol-step__deliverable">
+              <span class="sol-step__deliverable-label">Resultado dessa etapa</span>
+              Modelo de dados no SharePoint: listas de Máquinas, Operadores e Paradas com relacionamentos definidos
+            </div>
+          </div>
+
+          <div class="sol-step" data-reveal style="transition-delay:200ms">
+            <div class="sol-step__num" aria-hidden="true">02</div>
+            <div class="sol-step__tag">Construção</div>
+            <h3 class="sol-step__title">App funcional com interface para o chão de fábrica</h3>
+            <p class="sol-step__text">
+              Canvas App em Power Apps com telas de início e fim de parada,
+              seleção de máquina e operador, controle de tempo automático
+              e filtros para consulta do histórico completo.
+            </p>
+            <div class="sol-step__deliverable">
+              <span class="sol-step__deliverable-label">Resultado dessa etapa</span>
+              App publicado e testado com operadores — tempo médio de registro abaixo de 10 segundos
+            </div>
+          </div>
+
+          <div class="sol-step" data-reveal style="transition-delay:320ms">
+            <div class="sol-step__num" aria-hidden="true">03</div>
+            <div class="sol-step__tag">Análise</div>
+            <h3 class="sol-step__title">Dashboard com indicadores para gestão operacional</h3>
+            <p class="sol-step__text">
+              Power BI conectado ao SharePoint exibindo MTTR, máquinas com
+              maior downtime, paradas por turno e tendências por período.
+              O gestor acessa em tempo real — sem depender de ninguém.
+            </p>
+            <div class="sol-step__deliverable">
+              <span class="sol-step__deliverable-label">Resultado dessa etapa</span>
+              Dashboard em uso com atualização automática e drill-down por máquina e operador
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FUNCIONALIDADES ════════════════════════════════════ -->
+    <section id="funcionalidades" class="proj-section" data-section="funcionalidades" aria-labelledby="feat-heading">
+      <div class="container">
+
+        <div class="section-label" data-reveal>Funcionalidades</div>
+        <h2 class="proj-heading" id="feat-heading" data-reveal="left" style="transition-delay:80ms;max-width:600px">
+          O QUE O SISTEMA
+          <em>entrega na prática</em>
+        </h2>
+
+        <div class="feat-grid">
+
+          <div class="feat-card" data-reveal style="transition-delay:60ms">
+            <div class="feat-card__num" aria-hidden="true">01</div>
+            <div class="feat-card__tag">Automático / Manual</div>
+            <h3 class="feat-card__title">Início de Parada</h3>
+            <p class="feat-card__desc">
+              Registro com timestamp automático, vinculando máquina, operador
+              e tipo de parada. Suporte para início manual quando o sensor
+              não captura o evento.
+            </p>
+          </div>
+
+          <div class="feat-card" data-reveal style="transition-delay:120ms">
+            <div class="feat-card__num" aria-hidden="true">02</div>
+            <div class="feat-card__tag">Controle de Tempo</div>
+            <h3 class="feat-card__title">Finalização com Duração</h3>
+            <p class="feat-card__desc">
+              Encerramento da parada com cálculo automático da duração,
+              campo de observação e status de resolução.
+              Tempo real registrado sem depender de memória.
+            </p>
+          </div>
+
+          <div class="feat-card" data-reveal style="transition-delay:180ms">
+            <div class="feat-card__num" aria-hidden="true">03</div>
+            <div class="feat-card__tag">Rastreabilidade</div>
+            <h3 class="feat-card__title">Controle por Operador</h3>
+            <p class="feat-card__desc">
+              Cada registro vinculado ao operador logado. Histórico individual
+              por turno, com visualização de todas as paradas abertas e
+              encerradas por pessoa.
+            </p>
+          </div>
+
+          <div class="feat-card" data-reveal style="transition-delay:240ms">
+            <div class="feat-card__num" aria-hidden="true">04</div>
+            <div class="feat-card__tag">Consulta</div>
+            <h3 class="feat-card__title">Filtros Avançados</h3>
+            <p class="feat-card__desc">
+              Filtros por data, status (aberta / encerrada), máquina,
+              operador e tipo de parada. Consulta rápida sem depender
+              de relatório externo.
+            </p>
+          </div>
+
+          <div class="feat-card" data-reveal style="transition-delay:300ms">
+            <div class="feat-card__num" aria-hidden="true">05</div>
+            <div class="feat-card__tag">Indicadores</div>
+            <h3 class="feat-card__title">Dashboard com MTTR</h3>
+            <p class="feat-card__desc">
+              Mean Time To Repair calculado automaticamente no Power BI.
+              Indicadores de máquinas em operação versus paradas e
+              tendência por período.
+            </p>
+          </div>
+
+          <div class="feat-card" data-reveal style="transition-delay:360ms">
+            <div class="feat-card__num" aria-hidden="true">06</div>
+            <div class="feat-card__tag">Dados</div>
+            <h3 class="feat-card__title">Exportação e Auditoria</h3>
+            <p class="feat-card__desc">
+              Histórico completo acessível via SharePoint com exportação
+              para Excel. Rastreabilidade de ponta a ponta sem intervenção
+              manual.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DEMONSTRAÇÃO ═══════════════════════════════════════ -->
+    <section id="demo" class="proj-section proj-section--alt" data-section="demo" aria-labelledby="demo-heading">
+      <div class="container">
+
+        <div class="proj-2col proj-2col--end" style="margin-bottom:0">
+          <div>
+            <div class="section-label" data-reveal>Demonstração</div>
+            <h2 class="proj-heading proj-heading--accent" id="demo-heading" data-reveal="left" style="transition-delay:80ms">
+              VER O APP
+              <em>funcionando ao vivo</em>
+            </h2>
+            <p class="proj-text" data-reveal style="transition-delay:120ms">
+              Acesse o app publicado e veja o fluxo completo: início de parada,
+              seleção de máquina, controle de tempo e histórico de registros.
+            </p>
+            <div class="project__chips" data-reveal style="transition-delay:200ms;border-top:none;padding-top:16px" role="list">
+              <span class="chip" role="listitem">Power Apps</span>
+              <span class="chip" role="listitem">Canvas App</span>
+              <span class="chip" role="listitem">SharePoint</span>
+              <span class="chip" role="listitem">Mobile Ready</span>
+            </div>
+          </div>
+          <div data-reveal="right" style="transition-delay:120ms">
+            <p class="proj-text" style="font-style:italic;color:rgba(255,255,255,.58)">
+              "O app precisa ser mais rápido do que o papel.
+              Se for mais lento, o operador vai continuar anotando à mão."
+            </p>
+            <p style="font-family:var(--font-mono);font-size:.57rem;color:rgba(255,255,255,.42);letter-spacing:.06em;margin-top:12px">
+              — CRITÉRIO DE DESIGN DO PROJETO
+            </p>
+          </div>
+        </div>
+
+        <!-- Embed Power Apps -->
+        <div class="embed-wrap" data-reveal style="transition-delay:200ms">
+          <!--
+            Para ativar: substitua o bloco abaixo por:
+            <iframe src="SUA_URL_POWER_APPS" frameborder="0" allowfullscreen
+              style="width:100%;aspect-ratio:16/9;border-radius:4px;border:1px solid rgba(0,200,255,.1)">
+            </iframe>
+          -->
+          <div class="embed-placeholder" role="img" aria-label="Área de demonstração do aplicativo Power Apps">
+            <div class="embed-placeholder__icon" aria-hidden="true">⚙</div>
+            <div class="embed-placeholder__label">Power Apps · Demonstração</div>
+            <p class="embed-placeholder__sub">
+              Link de demonstração disponível mediante contato.
+              O app foi desenvolvido em ambiente corporativo Microsoft 365.
+            </p>
+            <a href="mailto:Dquevedo@QuevedoAnalytics.onmicrosoft.com?subject=Demo%20Power%20Apps%20-%20Controle%20de%20Paradas"
+               class="embed-placeholder__cta"
+               aria-label="Solicitar acesso à demonstração por e-mail">
+              Solicitar acesso
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ DASHBOARD POWER BI ═════════════════════════════════ -->
+    <section id="dashboard" class="proj-section" data-section="dashboard" aria-labelledby="dash-heading">
+      <div class="container">
+
+        <div class="proj-2col proj-2col--end" style="margin-bottom:48px">
+          <div>
+            <div class="section-label" data-reveal>Dashboard Power BI</div>
+            <h2 class="proj-heading" id="dash-heading" data-reveal="left" style="transition-delay:80ms">
+              ANÁLISE DE
+              <em>desempenho operacional</em>
+            </h2>
+          </div>
+          <p class="proj-text" data-reveal style="transition-delay:80ms">
+            O dashboard consolida todos os registros do app em tempo real.
+            Permite identificar máquinas críticas, padrões de parada por turno
+            e tomar decisões de manutenção baseadas em histórico real.
+          </p>
+        </div>
+
+        <!-- KPIs do dashboard -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px" data-reveal>
+          <div class="approach__step">
+            <div class="approach__step-num" aria-hidden="true">KPI 01</div>
+            <div class="approach__step-tag">Manutenção</div>
+            <h3 class="approach__step-title">MTTR — Tempo Médio de Reparo</h3>
+            <p class="approach__step-text">
+              Cálculo automático do tempo médio entre início e fim das paradas,
+              com drill-down por máquina e tipo de parada.
+            </p>
+          </div>
+          <div class="approach__step">
+            <div class="approach__step-num" aria-hidden="true">KPI 02</div>
+            <div class="approach__step-tag">Disponibilidade</div>
+            <h3 class="approach__step-title">Máquinas em Operação</h3>
+            <p class="approach__step-text">
+              Visão em tempo real do estado de cada máquina: operando,
+              em parada ou sem registro recente. Alerta visual para anomalias.
+            </p>
+          </div>
+          <div class="approach__step">
+            <div class="approach__step-num" aria-hidden="true">KPI 03</div>
+            <div class="approach__step-tag">Tendência</div>
+            <h3 class="approach__step-title">Paradas por Período</h3>
+            <p class="approach__step-text">
+              Histórico por dia, semana e mês. Identifica padrões recorrentes
+              e apoia o planejamento de manutenção preventiva.
+            </p>
+          </div>
+        </div>
+
+        <!-- Embed Power BI -->
+        <div class="embed-wrap" data-reveal style="transition-delay:160ms">
+          <!--
+            Para ativar: substitua o bloco abaixo por:
+            <iframe title="Dashboard Controle de Paradas"
+              src="SUA_URL_POWERBI_EMBED" frameborder="0" allowfullscreen
+              style="width:100%;aspect-ratio:16/9;border-radius:4px;border:1px solid rgba(0,200,255,.1)">
+            </iframe>
+          -->
+          <div class="embed-placeholder" role="img" aria-label="Dashboard Power BI — Controle de Paradas Industriais">
+            <div class="embed-placeholder__icon" aria-hidden="true">📊</div>
+            <div class="embed-placeholder__label">Power BI · Dashboard Operacional</div>
+            <p class="embed-placeholder__sub">
+              Dashboard publicado em ambiente Microsoft 365.
+              Solicite acesso para visualização completa com dados reais.
+            </p>
+            <a href="mailto:Dquevedo@QuevedoAnalytics.onmicrosoft.com?subject=Demo%20Power%20BI%20-%20Dashboard%20Paradas"
+               class="embed-placeholder__cta"
+               aria-label="Solicitar acesso ao dashboard Power BI">
+              Ver dashboard
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ TECNOLOGIAS ════════════════════════════════════════ -->
+    <section id="tecnologias" class="proj-section proj-section--alt" data-section="tecnologias" aria-labelledby="tech-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start">
+
+          <div class="skills__left" style="position:sticky;top:calc(64px + 32px)">
+            <div class="section-label" data-reveal>Stack</div>
+            <h2 class="skills__heading" id="tech-heading" data-reveal style="transition-delay:80ms">
+              TECNOLOGIAS<em>utilizadas</em>
+            </h2>
+            <p class="skills__note" data-reveal style="transition-delay:160ms">
+              Tudo dentro do ecossistema Microsoft.
+              Integração nativa entre todas as partes — sem dependência externa.
+            </p>
+            <div class="tag-cloud" data-reveal style="transition-delay:240ms" aria-label="Domínios do projeto">
+              <span class="tag">Power Platform</span>
+              <span class="tag">Low-Code</span>
+              <span class="tag">Microsoft 365</span>
+              <span class="tag">Indicadores industriais</span>
+              <span class="tag">Canvas App</span>
+              <span class="tag">Chão de fábrica</span>
+              <span class="tag">Modelagem de dados</span>
+            </div>
+          </div>
+
+          <div id="js-skills" style="display:flex;flex-direction:column;gap:12px">
+
+            <div class="skill-group" data-reveal style="transition-delay:80ms">
+              <div class="skill-group__header">
+                <div class="skill-group__icon" aria-hidden="true">⚡</div>
+                <div class="skill-group__content">
+                  <div class="skill-group__title">Power Apps</div>
+                  <div class="skill-group__context">Canvas App · Interface de registro · Filtros e histórico de paradas</div>
+                </div>
+              </div>
+              <div class="skill-rows">
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Canvas App</span>
+                    <span class="skill-row__level">Interface · UX para operador</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Canvas App — 72%">
+                    <div class="skill-row__fill" data-width="72"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power Fx</span>
+                    <span class="skill-row__level">Fórmulas · Lógica de negócio</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Power Fx — 65%">
+                    <div class="skill-row__fill" data-width="65"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal style="transition-delay:160ms">
+              <div class="skill-group__header">
+                <div class="skill-group__icon" aria-hidden="true">◈</div>
+                <div class="skill-group__content">
+                  <div class="skill-group__title">SharePoint</div>
+                  <div class="skill-group__context">Banco de dados · Listas Máquinas, Operadores e Paradas com relacionamentos</div>
+                </div>
+              </div>
+              <div class="skill-rows">
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Listas SharePoint</span>
+                    <span class="skill-row__level">Modelagem · Relacionamentos · Permissões</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="SharePoint — 75%">
+                    <div class="skill-row__fill" data-width="75"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal style="transition-delay:240ms">
+              <div class="skill-group__header">
+                <div class="skill-group__icon" aria-hidden="true">⟁</div>
+                <div class="skill-group__content">
+                  <div class="skill-group__title">Power BI</div>
+                  <div class="skill-group__context">Dashboard operacional · MTTR · Disponibilidade por máquina · Tendência por turno</div>
+                </div>
+              </div>
+              <div class="skill-rows">
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">Power BI Desktop</span>
+                    <span class="skill-row__level">Relatórios · Visuais · Publicação</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI — 85%">
+                    <div class="skill-row__fill" data-width="85"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="skill-row__header">
+                    <span class="skill-row__name">DAX</span>
+                    <span class="skill-row__level">Medidas MTTR · Cálculo de downtime</span>
+                  </div>
+                  <div class="skill-row__track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="DAX — 70%">
+                    <div class="skill-row__fill" data-width="70"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ DIFERENCIAIS ═══════════════════════════════════════ -->
+    <section id="diferenciais" class="proj-section" data-section="diferenciais" aria-labelledby="diff-heading">
+      <div class="container">
+
+        <div class="proj-2col proj-2col--end" style="margin-bottom:56px">
+          <div>
+            <div class="section-label" data-reveal>Diferenciais</div>
+            <h2 class="proj-heading" id="diff-heading" data-reveal="left" style="transition-delay:80ms">
+              POR QUE ESSE<br>PROJETO
+              <em>importa no mercado</em>
+            </h2>
+          </div>
+          <p class="proj-text" data-reveal style="transition-delay:80ms">
+            Não é um projeto de estudo. É uma solução construída
+            sobre um problema real de indústria, com a complexidade que isso exige.
+          </p>
+        </div>
+
+        <div class="diff-grid">
+
+          <div class="diff-card" data-reveal style="transition-delay:60ms">
+            <div class="diff-card__num" aria-hidden="true">01</div>
+            <h3 class="diff-card__title">Baseado em cenário real de indústria</h3>
+            <p class="diff-card__desc">
+              O problema foi levantado em ambiente fabril real. As telas, os fluxos
+              e os dados refletem como o chão de fábrica funciona de verdade —
+              não um cenário hipotético de curso ou tutorial.
+            </p>
+          </div>
+
+          <div class="diff-card" data-reveal style="transition-delay:120ms">
+            <div class="diff-card__num" aria-hidden="true">02</div>
+            <h3 class="diff-card__title">Modelagem de dados estruturada antes do app</h3>
+            <p class="diff-card__desc">
+              As listas do SharePoint foram desenhadas antes de abrir o Power Apps.
+              Relacionamentos claros entre Máquinas, Operadores e Paradas garantem
+              que o Power BI calcule tudo sem gambiarras.
+            </p>
+          </div>
+
+          <div class="diff-card" data-reveal style="transition-delay:180ms">
+            <div class="diff-card__num" aria-hidden="true">03</div>
+            <h3 class="diff-card__title">UX pensada para quem realmente usa</h3>
+            <p class="diff-card__desc">
+              O operador de fábrica não tem tempo para aprender sistema novo.
+              O app foi desenhado para funcionar com mínimo de cliques —
+              mesmo com luva, mesmo em tela pequena, mesmo no meio do turno.
+            </p>
+          </div>
+
+          <div class="diff-card" data-reveal style="transition-delay:240ms">
+            <div class="diff-card__num" aria-hidden="true">04</div>
+            <h3 class="diff-card__title">Arquitetura pronta para escalar</h3>
+            <p class="diff-card__desc">
+              O modelo de dados permite adicionar novos indicadores, integrar com
+              sistemas CMMS, exportar para bancos SQL ou expandir para múltiplas
+              plantas sem reescrever a base da solução.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA FINAL ══════════════════════════════════════════ -->
+    <div class="proj-final">
+      <div class="container">
+
+        <p class="proj-final__eyebrow">Daniel Quevedo · Power Platform · Sorocaba-SP</p>
+        <p class="proj-final__title">
+          Tem um problema industrial parecido com esse?<br>
+          Quer ver o projeto em mais detalhes ou adaptar para sua operação?
+        </p>
+
+        <div class="proj-final__ctas">
+          <a href="index.html" class="btn-outline" style="display:inline-flex;align-items:center;gap:9px">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Voltar para o portfólio
+          </a>
+          <a href="mailto:Dquevedo@QuevedoAnalytics.onmicrosoft.com?subject=Projeto%20Controle%20de%20Paradas" class="btn-primary">
+            Vamos conversar
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <footer class="site-footer" style="margin-top:80px" role="contentinfo">
+          <div class="footer-brand">
+            <span class="footer-brand__dot" aria-hidden="true"></span>
+            Daniel Quevedo
+          </div>
+          <p class="footer-copy">© 2026 · Sistema de Controle de Paradas · Power Platform</p>
+        </footer>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FLOATING SIDE PANEL ══════════════════════════════════ -->
+  <div class="side-panel__overlay" id="js-sp-overlay" aria-hidden="true"></div>
+
+  <button class="side-panel-trigger" id="js-sp-trigger" aria-expanded="false" aria-controls="js-side-panel" aria-label="Abrir painel de navegação e contato">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="2" fill="currentColor"/>
+      <circle cx="8" cy="3" r="1.5" fill="currentColor"/>
+      <circle cx="8" cy="13" r="1.5" fill="currentColor"/>
+    </svg>
+    Menu
+  </button>
+
+  <aside class="side-panel" id="js-side-panel" role="complementary" aria-label="Painel de acesso rápido">
+    <div class="side-panel__header">
+      <span class="side-panel__logo">Paradas · Nav</span>
+      <button class="side-panel__close" id="js-sp-close" aria-label="Fechar painel">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="side-panel__body">
+
+      <p class="side-panel__section-title">Ir para</p>
+
+      <nav class="side-panel__nav" aria-label="Seções do projeto">
+        <button class="side-panel__nav-btn" data-sp-scroll="demo">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1" y="2" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M6 8l3-2v4L6 8z" fill="currentColor"/>
+            <path d="M5 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Demonstração do App
+        </button>
+        <button class="side-panel__nav-btn" data-sp-scroll="dashboard">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="9" y="1" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="1" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="9" y="9" width="6" height="6" rx="1.2" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          Dashboard Power BI
+        </button>
+      </nav>
+
+      <div class="side-panel__divider"></div>
+
+      <p class="side-panel__section-title">Fale comigo</p>
+
+      <form class="side-panel__form" id="js-sp-form" novalidate>
+        <input
+          class="side-panel__input"
+          type="text"
+          name="name"
+          placeholder="Seu nome"
+          autocomplete="name"
+          required
+        />
+        <input
+          class="side-panel__input"
+          type="email"
+          name="email"
+          placeholder="Seu e-mail"
+          autocomplete="email"
+          required
+        />
+        <textarea
+          class="side-panel__textarea"
+          name="message"
+          placeholder="Sua mensagem…"
+          required
+        ></textarea>
+        <button class="side-panel__submit" type="submit" id="js-sp-submit">
+          Enviar mensagem
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="side-panel__note" id="js-sp-note" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </aside>
+
+
+</body>
+</html>

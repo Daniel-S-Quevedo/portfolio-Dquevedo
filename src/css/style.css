@@ -84,8 +84,7 @@ ul {
   --color-faint-3: rgba(255, 255, 255, 0.03);
 
   /* Cores por projeto */
-  --color-project-1: #FFD60A; /* Manutenção — âmbar */
-  --color-project-2: #0AFF9D; /* Inventário — menta */
+--color-project-2: #0AFF9D; /* Inventário — menta */
   --color-project-3: #FF6B35; /* ABC/XYZ — coral */
   --color-project-4: #BF5FFF; /* Automação — violeta */
 
@@ -124,7 +123,7 @@ ul {
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.57rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -781,8 +780,8 @@ ul {
   font-style: italic;
   font-weight: 400;
   font-size: 0.62em;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
   display: block;
   margin-top: 4px;
 }
@@ -918,9 +917,10 @@ ul {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   display: block;
   font-size: 0.62em;
+  letter-spacing: 0.02em;
   margin-top: 6px;
 }
 
@@ -933,7 +933,7 @@ ul {
 
 .about__text p {
   font-size: 0.97rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.8;
   font-weight: 300;
 }
@@ -960,7 +960,7 @@ ul {
 .feature__num {
   font-family: var(--font-mono);
   font-size: 0.55rem;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.1em;
   padding-top: 4px;
   flex-shrink: 0;
@@ -975,7 +975,7 @@ ul {
 
 .feature__desc {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
 }
 
@@ -1120,7 +1120,7 @@ ul {
 .project__index {
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 40px;
@@ -1168,7 +1168,7 @@ ul {
 
 .project__problem-text {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.78;
   font-weight: 300;
   max-width: 400px;
@@ -1216,7 +1216,7 @@ ul {
 
 .project__solution-text {
   font-size: 0.97rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.8;
   font-weight: 300;
   max-width: 460px;
@@ -1251,7 +1251,7 @@ ul {
 .project__result-desc {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 12px;
@@ -1305,9 +1305,9 @@ ul {
 
 /* Cores individuais por projeto */
 .project--1 {
-  background: #0D0A00;
-  --project-accent: var(--color-project-1);
-  --project-tint: rgba(255, 214, 10, 0.05);
+  background: #001824;
+  --project-accent: #00C8FF;
+  --project-tint: rgba(0, 200, 255, 0.05);
 }
 .project--2 {
   background: #001A0E;
@@ -1325,12 +1325,12 @@ ul {
   --project-tint: rgba(191, 95, 255, 0.05);
 }
 
-.project--1:hover { background: #140E00; }
+.project--1:hover { background: #002233; }
 .project--2:hover { background: #00220F; }
 .project--3:hover { background: #220A00; }
 .project--4:hover { background: #120020; }
 
-.project--1:hover .project__cta-pill { color: rgba(255,214,10,0.55); border-color: rgba(255,214,10,0.18); }
+.project--1:hover .project__cta-pill { color: rgba(0,200,255,0.55); border-color: rgba(0,200,255,0.18); }
 .project--2:hover .project__cta-pill { color: rgba(10,255,157,0.55); border-color: rgba(10,255,157,0.18); }
 .project--3:hover .project__cta-pill { color: rgba(255,107,53,0.55); border-color: rgba(255,107,53,0.18); }
 .project--4:hover .project__cta-pill { color: rgba(191,95,255,0.55); border-color: rgba(191,95,255,0.18); }
@@ -1386,15 +1386,16 @@ ul {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   display: block;
   font-size: 0.62em;
+  letter-spacing: 0.02em;
   margin-top: 6px;
 }
 
 .skills__note {
   font-size: 0.97rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.58);
   line-height: 1.78;
   margin-bottom: 48px;
 }
@@ -1567,13 +1568,14 @@ ul {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   display: block;
+  letter-spacing: 0.02em;
 }
 
 .contact__text {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.58);
   line-height: 1.8;
   max-width: 380px;
   margin-bottom: 48px;
@@ -1984,9 +1986,10 @@ ul {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: rgba(255,255,255,.3);
+  color: rgba(255,255,255,.55);
   display: block;
   font-size: .62em;
+  letter-spacing: 0.02em;
   margin-top: 6px;
 }
 
@@ -2021,7 +2024,7 @@ ul {
 .approach__step-num {
   font-family: var(--font-mono);
   font-size: 0.55rem;
-  color: rgba(255,255,255,.15);
+  color: rgba(255,255,255,.4);
   letter-spacing: .14em;
   margin-bottom: 32px;
 }
@@ -2057,7 +2060,7 @@ ul {
 
 .approach__step-text {
   font-size: .9rem;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.58);
   line-height: 1.75;
   font-weight: 300;
   margin-bottom: 28px;
@@ -2070,7 +2073,7 @@ ul {
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,.07);
   font-size: .8rem;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.52);
   line-height: 1.5;
 }
 
@@ -2131,7 +2134,7 @@ ul {
 }
 
 /* Accent no impact box por projeto */
-.project--1 .project__impact { border-left: 2px solid rgba(255,214,10,.25); }
+.project--1 .project__impact { border-left: 2px solid rgba(0,200,255,.25); }
 .project--2 .project__impact { border-left: 2px solid rgba(10,255,157,.25); }
 .project--3 .project__impact { border-left: 2px solid rgba(255,107,53,.25); }
 .project--4 .project__impact { border-left: 2px solid rgba(191,95,255,.25); }
@@ -2303,7 +2306,7 @@ ul {
   border-left-width: 2px;
 }
 
-.project--1 .project__thinking { border-left-color: rgba(255,214,10,.2); }
+.project--1 .project__thinking { border-left-color: rgba(0,200,255,.2); }
 .project--2 .project__thinking { border-left-color: rgba(10,255,157,.2); }
 .project--3 .project__thinking { border-left-color: rgba(255,107,53,.2); }
 .project--4 .project__thinking { border-left-color: rgba(191,95,255,.2); }
@@ -2319,7 +2322,7 @@ ul {
 
 .project__thinking-text {
   font-size: .85rem;
-  color: rgba(255,255,255,.38);
+  color: rgba(255,255,255,.55);
   line-height: 1.7;
   font-weight: 300;
   font-style: italic;
