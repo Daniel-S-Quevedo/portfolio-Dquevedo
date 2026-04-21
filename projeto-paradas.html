@@ -398,32 +398,67 @@
           </div>
         </div>
 
-        <!-- App Gallery -->
-        <div class="app-gallery" data-reveal style="transition-delay:200ms">
-          <div class="app-gallery__main">
-            <img
-              src="assets/imagens/Projeto1/PowerApps/1.jpg"
-              alt="Tela principal do app — status das máquinas com OPERANDO e PARADA"
-              id="js-gallery-main"
-              style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"
-            />
+        <!-- Carousel: Power Apps -->
+        <div class="carousel" data-reveal style="transition-delay:200ms" aria-label="Telas do aplicativo Power Apps" tabindex="0">
+          <div class="carousel__stage">
+            <div class="carousel__scanline" aria-hidden="true"></div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerApps/1.jpg" alt="Dashboard principal — status das máquinas com OPERANDO e PARADA"/>
+              <div class="carousel__caption">Dashboard principal · visão geral de máquinas em tempo real</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerApps/2.jpg" alt="Tela Iniciar Parada — modo manual com campos de data e hora"/>
+              <div class="carousel__caption">Iniciar parada · modo manual com seleção de data e hora</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerApps/3.jpg" alt="Tela Iniciar Parada — modo automático com timestamp do sistema"/>
+              <div class="carousel__caption">Iniciar parada · modo automático — timestamp gerado pelo sistema</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerApps/4.jpg" alt="Tela Finalizar Parada — lista com duração calculada e botão Finalizar"/>
+              <div class="carousel__caption">Finalizar parada · duração calculada automaticamente</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerApps/5.jpg" alt="Tela Consulta — filtros por data, status e máquina com histórico"/>
+              <div class="carousel__caption">Consulta · histórico completo com filtros por data, status e máquina</div>
+            </div>
           </div>
-          <div class="app-gallery__thumbs" role="list" aria-label="Telas do aplicativo Power Apps">
-            <button class="app-gallery__thumb app-gallery__thumb--active" data-gallery-src="assets/imagens/Projeto1/PowerApps/1.jpg" aria-label="Tela 1 — Dashboard principal" role="listitem">
-              <img src="assets/imagens/Projeto1/PowerApps/1.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
-            </button>
-            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/2.jpg" aria-label="Tela 2 — Iniciar parada (modo manual)" role="listitem">
-              <img src="assets/imagens/Projeto1/PowerApps/2.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
-            </button>
-            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/3.jpg" aria-label="Tela 3 — Iniciar parada (modo automático)" role="listitem">
-              <img src="assets/imagens/Projeto1/PowerApps/3.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
-            </button>
-            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/4.jpg" aria-label="Tela 4 — Finalizar parada" role="listitem">
-              <img src="assets/imagens/Projeto1/PowerApps/4.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
-            </button>
-            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/5.jpg" aria-label="Tela 5 — Consulta de histórico com filtros" role="listitem">
-              <img src="assets/imagens/Projeto1/PowerApps/5.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
-            </button>
+
+          <div class="carousel__bar">
+            <div class="carousel__counter">
+              <span class="carousel__current"><span class="carousel__current-inner">01</span></span>
+              <span class="carousel__sep"> / </span>
+              <span class="carousel__total">05</span>
+            </div>
+            <div class="carousel__progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+              <div class="carousel__progress-fill" style="width:20%"></div>
+            </div>
+            <div class="carousel__btns">
+              <button class="carousel__btn carousel__btn--prev" aria-label="Slide anterior" disabled>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M10 3L6 8l4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="carousel__play-wrap">
+                <svg class="carousel__arc" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+                  <circle class="carousel__arc-bg" cx="17" cy="17" r="15"/>
+                  <circle class="carousel__arc-fill" cx="17" cy="17" r="15"/>
+                </svg>
+                <button class="carousel__btn carousel__btn--next" aria-label="Próximo slide">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M6 3l4 5-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel__dots" role="tablist" aria-label="Selecionar slide">
+            <button class="carousel__dot carousel__dot--active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+            <button class="carousel__dot" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Slide 5" aria-selected="false"></button>
           </div>
         </div>
 
@@ -502,26 +537,67 @@
           </p>
         </div>
 
-        <div class="sp-grid" data-reveal style="transition-delay:280ms">
-          <div class="sp-grid__item">
-            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/2.jpg" alt="Lista SharePoint Paradas — registros de início e fim com máquina, operador e tipo" style="width:100%;display:block"/>
-            <div class="sp-grid__label">Paradas</div>
+        <!-- Carousel: SharePoint lists -->
+        <div class="carousel carousel--sp" data-reveal style="transition-delay:280ms" aria-label="Listas SharePoint do projeto" tabindex="0">
+          <div class="carousel__stage">
+            <div class="carousel__scanline" aria-hidden="true"></div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerBi+SharepointList/2.jpg" alt="Lista SharePoint Paradas — registros de início e fim com máquina, operador e tipo"/>
+              <div class="carousel__caption">Paradas · registros de início e fim por máquina e operador</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerBi+SharepointList/3.jpg" alt="Lista SharePoint Máquinas — cadastro dos equipamentos da planta"/>
+              <div class="carousel__caption">Máquinas · cadastro de equipamentos da planta</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerBi+SharepointList/4.jpg" alt="Lista SharePoint Turnos — 1°, 2° e 3° turnos"/>
+              <div class="carousel__caption">Turnos · 1°, 2° e 3° turnos cadastrados</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerBi+SharepointList/5.jpg" alt="Lista SharePoint Tipo de Parada — Elétrica, Operacional, Mecânica"/>
+              <div class="carousel__caption">Tipo de Parada · Elétrica, Operacional, Mecânica</div>
+            </div>
+            <div class="carousel__slide">
+              <img src="assets/imagens/Projeto1/PowerBi+SharepointList/6.jpg" alt="Lista SharePoint Operadores — cadastro de operadores por turno"/>
+              <div class="carousel__caption">Operadores · cadastro de operadores por turno</div>
+            </div>
           </div>
-          <div class="sp-grid__item">
-            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/3.jpg" alt="Lista SharePoint Máquinas — cadastro de máquinas da planta" style="width:100%;display:block"/>
-            <div class="sp-grid__label">Máquinas</div>
+
+          <div class="carousel__bar">
+            <div class="carousel__counter">
+              <span class="carousel__current"><span class="carousel__current-inner">01</span></span>
+              <span class="carousel__sep"> / </span>
+              <span class="carousel__total">05</span>
+            </div>
+            <div class="carousel__progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+              <div class="carousel__progress-fill" style="width:20%"></div>
+            </div>
+            <div class="carousel__btns">
+              <button class="carousel__btn carousel__btn--prev" aria-label="Slide anterior" disabled>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M10 3L6 8l4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="carousel__play-wrap">
+                <svg class="carousel__arc" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+                  <circle class="carousel__arc-bg" cx="17" cy="17" r="15"/>
+                  <circle class="carousel__arc-fill" cx="17" cy="17" r="15"/>
+                </svg>
+                <button class="carousel__btn carousel__btn--next" aria-label="Próximo slide">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M6 3l4 5-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="sp-grid__item">
-            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/4.jpg" alt="Lista SharePoint Turnos — 1°, 2° e 3° turnos cadastrados" style="width:100%;display:block"/>
-            <div class="sp-grid__label">Turnos</div>
-          </div>
-          <div class="sp-grid__item">
-            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/5.jpg" alt="Lista SharePoint Tipo de Parada — Elétrica, Operacional, Mecânica" style="width:100%;display:block"/>
-            <div class="sp-grid__label">Tipo de Parada</div>
-          </div>
-          <div class="sp-grid__item" style="grid-column:span 2">
-            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/6.jpg" alt="Lista SharePoint Operadores — cadastro de operadores por turno" style="width:100%;display:block"/>
-            <div class="sp-grid__label">Operadores</div>
+
+          <div class="carousel__dots" role="tablist" aria-label="Selecionar lista">
+            <button class="carousel__dot carousel__dot--active" role="tab" aria-label="Paradas" aria-selected="true"></button>
+            <button class="carousel__dot" role="tab" aria-label="Máquinas" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Turnos" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Tipo de Parada" aria-selected="false"></button>
+            <button class="carousel__dot" role="tab" aria-label="Operadores" aria-selected="false"></button>
           </div>
         </div>
 

@@ -847,53 +847,6 @@
 .side-panel__note--ok    { color: #4ade80; }
 .side-panel__note--error { color: #f87171; }
 
-/* ── Galeria do app ── */
-.app-gallery {
-  margin-top: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.app-gallery__main {
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(0,200,255,.12);
-  background: #000;
-  line-height: 0;
-}
-.app-gallery__main img {
-  width: 100%;
-  display: block;
-  transition: opacity .2s;
-}
-.app-gallery__thumbs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-}
-.app-gallery__thumb {
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid rgba(0,200,255,.08);
-  cursor: pointer;
-  background: #000;
-  line-height: 0;
-  transition: border-color .2s, transform .2s var(--ease-out);
-}
-.app-gallery__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.app-gallery__thumb:hover,
-.app-gallery__thumb--active {
-  border-color: rgba(0,200,255,.4);
-  transform: scale(1.02);
-}
-.app-gallery__thumb--active { border-color: var(--p5-accent); }
-
 /* ── Imagem do dashboard ── */
 .dashboard-img-wrap {
   border-radius: 6px;
@@ -906,37 +859,228 @@
   display: block;
 }
 
-/* ── SharePoint data model grid ── */
-.sp-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  margin-top: 48px;
-}
-.sp-grid__item {
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.06);
-  line-height: 0;
+/* ── 3D Fan Carousel ── */
+.carousel {
   position: relative;
-  transition: border-color .2s;
+  margin-top: 48px;
+  outline: none;
+  overflow: hidden; /* clip far side cards */
 }
-.sp-grid__item:hover { border-color: rgba(0,200,255,.2); }
-.sp-grid__item img {
+.carousel:focus-visible { outline: 2px solid var(--p5-accent); outline-offset: 4px; border-radius: 6px; }
+
+/* Stage: perspective context, height from padding-top trick */
+.carousel__stage {
+  position: relative;
+  padding-top: 34.875%; /* 62%-wide slides at 16:9 = 62%×9/16 */
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+  cursor: none;
+  user-select: none;
+}
+
+/* Scan-line sweep */
+.carousel__scanline {
+  position: absolute;
+  left: -10%; right: -10%; top: -2px;
+  height: 2px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent 5%, rgba(0,200,255,.7) 28%, rgba(255,255,255,.95) 50%, rgba(0,200,255,.7) 72%, transparent 95%);
+  box-shadow: 0 0 18px rgba(0,200,255,.6), 0 0 36px rgba(0,200,255,.25);
+}
+.carousel__stage--scanning .carousel__scanline {
+  animation: scanline-sweep .55s cubic-bezier(0.4,0,0.6,1) forwards;
+}
+@keyframes scanline-sweep {
+  0%   { top: -2px; opacity: 1; }
+  88%  { top: 100%; opacity: .8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Slides: absolute, centered, 3D transforms applied by JS */
+.carousel__slide {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 62%;
+  left: 50%;
+  margin-left: -31%;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: none;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition: transform .72s cubic-bezier(0.16,1,0.3,1), opacity .6s cubic-bezier(0.16,1,0.3,1), box-shadow .5s;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+}
+.carousel__slide img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  pointer-events: none;
 }
-.sp-grid__label {
+.carousel__slide--active {
+  border: 1px solid rgba(0,200,255,.2);
+  box-shadow: 0 0 0 1px rgba(0,200,255,.08), 0 24px 70px rgba(0,0,0,.7), 0 0 60px rgba(0,200,255,.07);
+}
+
+/* Caption: clip-path reveal only on active */
+.carousel__caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 6px 10px;
-  background: rgba(0,0,0,.7);
+  padding: 64px 20px 16px;
+  background: linear-gradient(0deg, rgba(0,4,14,.94) 0%, transparent 100%);
   font-family: var(--font-mono);
-  font-size: .52rem;
+  font-size: .58rem;
+  color: rgba(255,255,255,.72);
   letter-spacing: .1em;
-  color: rgba(255,255,255,.55);
   text-transform: uppercase;
   line-height: 1;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .6s .28s cubic-bezier(0.16,1,0.3,1);
+}
+.carousel__slide--active .carousel__caption { clip-path: inset(0 0% 0 0); }
+
+/* Controls bar */
+.carousel__bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+.carousel__counter {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  color: rgba(255,255,255,.38);
+  letter-spacing: .08em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.carousel__current {
+  color: var(--p5-accent);
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.2;
+  min-width: 1.6em;
+  vertical-align: bottom;
+}
+.carousel__current-inner { display: block; }
+.carousel__current-inner--out {
+  animation: count-out .18s ease-in both;
+}
+.carousel__current-inner--in {
+  animation: count-in .22s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes count-out {
+  to { opacity: 0; transform: translateY(-120%); }
+}
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(120%); }
+}
+
+.carousel__progress {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,.07);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.carousel__progress-fill {
+  height: 100%;
+  background: var(--p5-accent);
+  border-radius: 2px;
+  transition: width .65s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 0 8px rgba(0,200,255,.45);
+}
+
+.carousel__btns { display: flex; gap: 6px; align-items: center; }
+.carousel__btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,200,255,.16);
+  background: transparent;
+  color: rgba(255,255,255,.5);
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s, color .2s, transform .15s;
+}
+.carousel__btn:hover:not(:disabled) {
+  border-color: var(--p5-accent);
+  background: rgba(0,200,255,.1);
+  color: var(--p5-accent);
+  transform: scale(1.1);
+}
+.carousel__btn:disabled { opacity: .28; cursor: none; }
+
+/* Auto-play arc ring around next button */
+.carousel__play-wrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel__arc {
+  position: absolute;
+  inset: 0;
+  width: 34px;
+  height: 34px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+  overflow: visible;
+}
+.carousel__arc-bg {
+  stroke: rgba(255,255,255,.05);
+  stroke-width: 1.5;
+  fill: none;
+}
+.carousel__arc-fill {
+  stroke: var(--p5-accent);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 94.25;
+  stroke-dashoffset: 94.25;
+  stroke-linecap: round;
+  opacity: .65;
+  filter: drop-shadow(0 0 4px rgba(0,200,255,.55));
+}
+
+/* Dots */
+.carousel__dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.carousel__dot {
+  height: 3px;
+  width: 3px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(255,255,255,.15);
+  cursor: none;
+  padding: 0;
+  transition: background .25s, width .32s cubic-bezier(0.16,1,0.3,1), box-shadow .25s;
+}
+.carousel__dot--active {
+  width: 28px;
+  background: var(--p5-accent);
+  box-shadow: 0 0 8px rgba(0,200,255,.45);
+}
+.carousel__dot:hover:not(.carousel__dot--active) { background: rgba(255,255,255,.35); }
+
+/* SP carousel: contain images (browser screenshots vary in ratio) */
+.carousel--sp .carousel__slide img { object-fit: contain; }
+
+@media (max-width: 640px) {
+  .carousel__btn, .carousel__play-wrap { width: 30px; height: 30px; }
+  .carousel__arc { width: 30px; height: 30px; }
 }
 
 /* ── Seção Power Automate ── */

@@ -47,6 +47,12 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: none;
+}
+
+input, textarea, select, label,
+[role="button"], [role="tab"], [role="option"] {
+  cursor: none;
 }
 
 button {
