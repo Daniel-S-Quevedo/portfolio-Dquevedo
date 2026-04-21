@@ -66,7 +66,7 @@
       <div class="proj-hero__body">
         <div class="proj-hero__badge">
           <span class="proj-hero__badge-dot" aria-hidden="true"></span>
-          Projeto 05 · Power Apps · SharePoint · Power BI
+          Projeto 01 · Power Apps · SharePoint · Power BI · Power Automate
         </div>
 
         <h1 class="proj-hero__title">
@@ -398,29 +398,32 @@
           </div>
         </div>
 
-        <!-- Embed Power Apps -->
-        <div class="embed-wrap" data-reveal style="transition-delay:200ms">
-          <!--
-            Para ativar: substitua o bloco abaixo por:
-            <iframe src="SUA_URL_POWER_APPS" frameborder="0" allowfullscreen
-              style="width:100%;aspect-ratio:16/9;border-radius:4px;border:1px solid rgba(0,200,255,.1)">
-            </iframe>
-          -->
-          <div class="embed-placeholder" role="img" aria-label="Área de demonstração do aplicativo Power Apps">
-            <div class="embed-placeholder__icon" aria-hidden="true">⚙</div>
-            <div class="embed-placeholder__label">Power Apps · Demonstração</div>
-            <p class="embed-placeholder__sub">
-              Link de demonstração disponível mediante contato.
-              O app foi desenvolvido em ambiente corporativo Microsoft 365.
-            </p>
-            <a href="mailto:Dquevedo@QuevedoAnalytics.onmicrosoft.com?subject=Demo%20Power%20Apps%20-%20Controle%20de%20Paradas"
-               class="embed-placeholder__cta"
-               aria-label="Solicitar acesso à demonstração por e-mail">
-              Solicitar acesso
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+        <!-- App Gallery -->
+        <div class="app-gallery" data-reveal style="transition-delay:200ms">
+          <div class="app-gallery__main">
+            <img
+              src="assets/imagens/Projeto1/PowerApps/1.jpg"
+              alt="Tela principal do app — status das máquinas com OPERANDO e PARADA"
+              id="js-gallery-main"
+              style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover"
+            />
+          </div>
+          <div class="app-gallery__thumbs" role="list" aria-label="Telas do aplicativo Power Apps">
+            <button class="app-gallery__thumb app-gallery__thumb--active" data-gallery-src="assets/imagens/Projeto1/PowerApps/1.jpg" aria-label="Tela 1 — Dashboard principal" role="listitem">
+              <img src="assets/imagens/Projeto1/PowerApps/1.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
+            </button>
+            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/2.jpg" aria-label="Tela 2 — Iniciar parada (modo manual)" role="listitem">
+              <img src="assets/imagens/Projeto1/PowerApps/2.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
+            </button>
+            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/3.jpg" aria-label="Tela 3 — Iniciar parada (modo automático)" role="listitem">
+              <img src="assets/imagens/Projeto1/PowerApps/3.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
+            </button>
+            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/4.jpg" aria-label="Tela 4 — Finalizar parada" role="listitem">
+              <img src="assets/imagens/Projeto1/PowerApps/4.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
+            </button>
+            <button class="app-gallery__thumb" data-gallery-src="assets/imagens/Projeto1/PowerApps/5.jpg" aria-label="Tela 5 — Consulta de histórico com filtros" role="listitem">
+              <img src="assets/imagens/Projeto1/PowerApps/5.jpg" alt="" style="width:100%;height:100%;object-fit:cover" aria-hidden="true"/>
+            </button>
           </div>
         </div>
 
@@ -477,31 +480,94 @@
           </div>
         </div>
 
-        <!-- Embed Power BI -->
-        <div class="embed-wrap" data-reveal="blur" style="transition-delay:160ms">
-          <!--
-            Para ativar: substitua o bloco abaixo por:
-            <iframe title="Dashboard Controle de Paradas"
-              src="SUA_URL_POWERBI_EMBED" frameborder="0" allowfullscreen
-              style="width:100%;aspect-ratio:16/9;border-radius:4px;border:1px solid rgba(0,200,255,.1)">
-            </iframe>
-          -->
-          <div class="embed-placeholder" role="img" aria-label="Dashboard Power BI — Controle de Paradas Industriais">
-            <div class="embed-placeholder__icon" aria-hidden="true">📊</div>
-            <div class="embed-placeholder__label">Power BI · Dashboard Operacional</div>
-            <p class="embed-placeholder__sub">
-              Dashboard publicado em ambiente Microsoft 365.
-              Solicite acesso para visualização completa com dados reais.
-            </p>
-            <a href="mailto:Dquevedo@QuevedoAnalytics.onmicrosoft.com?subject=Demo%20Power%20BI%20-%20Dashboard%20Paradas"
-               class="embed-placeholder__cta"
-               aria-label="Solicitar acesso ao dashboard Power BI">
-              Ver dashboard
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+        <!-- Dashboard Image -->
+        <div class="dashboard-img-wrap" data-reveal="blur" style="transition-delay:160ms">
+          <img
+            src="assets/imagens/Projeto1/PowerBi+SharepointList/ImagemDashBoard.png"
+            alt="Dashboard Power BI — 4 de 6 máquinas operando, 2 paradas, MTTR 31 min, disponibilidade 66,67%"
+            style="width:100%;display:block"
+          />
+        </div>
+
+        <!-- SharePoint Data Model -->
+        <div data-reveal style="transition-delay:240ms;margin-top:64px">
+          <div class="section-label">Modelo de Dados</div>
+          <h3 class="proj-heading" style="font-size:clamp(1.1rem,2vw,1.4rem);margin-bottom:8px" data-reveal="rise" style="transition-delay:320ms">
+            LISTAS DO SHAREPOINT
+            <em>base de dados da solução</em>
+          </h3>
+          <p class="proj-text" style="max-width:620px;margin-bottom:0">
+            Cinco listas relacionadas formam a espinha dorsal da solução.
+            Power Apps escreve nelas. Power BI lê delas. Zero infraestrutura extra.
+          </p>
+        </div>
+
+        <div class="sp-grid" data-reveal style="transition-delay:280ms">
+          <div class="sp-grid__item">
+            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/2.jpg" alt="Lista SharePoint Paradas — registros de início e fim com máquina, operador e tipo" style="width:100%;display:block"/>
+            <div class="sp-grid__label">Paradas</div>
           </div>
+          <div class="sp-grid__item">
+            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/3.jpg" alt="Lista SharePoint Máquinas — cadastro de máquinas da planta" style="width:100%;display:block"/>
+            <div class="sp-grid__label">Máquinas</div>
+          </div>
+          <div class="sp-grid__item">
+            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/4.jpg" alt="Lista SharePoint Turnos — 1°, 2° e 3° turnos cadastrados" style="width:100%;display:block"/>
+            <div class="sp-grid__label">Turnos</div>
+          </div>
+          <div class="sp-grid__item">
+            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/5.jpg" alt="Lista SharePoint Tipo de Parada — Elétrica, Operacional, Mecânica" style="width:100%;display:block"/>
+            <div class="sp-grid__label">Tipo de Parada</div>
+          </div>
+          <div class="sp-grid__item" style="grid-column:span 2">
+            <img src="assets/imagens/Projeto1/PowerBi+SharepointList/6.jpg" alt="Lista SharePoint Operadores — cadastro de operadores por turno" style="width:100%;display:block"/>
+            <div class="sp-grid__label">Operadores</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ POWER AUTOMATE ════════════════════════════════════════ -->
+    <section id="automate" class="automate-section" data-section="automate" aria-labelledby="automate-heading">
+      <div class="container">
+
+        <div class="proj-2col proj-2col--end" style="margin-bottom:48px">
+          <div>
+            <div class="section-label" data-reveal>Automação</div>
+            <h2 class="automate-heading proj-heading" id="automate-heading" data-reveal="rise" style="transition-delay:80ms">
+              ALERTA AUTOMÁTICO
+              <em>parada &gt; 20 minutos</em>
+            </h2>
+          </div>
+          <div data-reveal="blur" style="transition-delay:120ms">
+            <p class="proj-text">
+              Um fluxo em <strong>Power Automate</strong> monitora continuamente as listas do SharePoint.
+              Quando detecta uma parada aberta há mais de <strong>20 minutos</strong>, dispara
+              automaticamente um e-mail para a liderança com os dados da máquina,
+              operador e tempo decorrido — sem precisar que ninguém verifique manualmente.
+            </p>
+            <p class="proj-text" style="margin-top:16px">
+              Isso transforma um dado passivo em uma ação proativa:
+              o gestor é avisado no momento certo, não no dia seguinte.
+            </p>
+          </div>
+        </div>
+
+        <div class="automate-img-wrap" data-reveal="blur" style="transition-delay:160ms">
+          <img
+            src="assets/imagens/Projeto1/FluxoPowerAutomate/Fluxo+e-mail.png"
+            alt="Fluxo Power Automate — gatilho de parada aberta há mais de 20 minutos dispara e-mail de alerta para liderança"
+            style="width:100%;display:block;border-radius:6px;border:1px solid rgba(255,149,0,.18)"
+          />
+        </div>
+
+        <div class="automate-callout" data-reveal style="transition-delay:240ms">
+          <div class="automate-callout__dot" aria-hidden="true"></div>
+          <p class="automate-callout__text">
+            <strong>Critério do gatilho:</strong> parada com status <em>Aberta</em> e timestamp de início &gt; 20 minutos antes do momento atual.
+            O fluxo roda em intervalo recorrente e verifica todas as máquinas simultaneamente.
+          </p>
         </div>
 
       </div>

@@ -27,6 +27,20 @@
   });
 })();
 
+(function initGallery() {
+  const mainImg = document.getElementById('js-gallery-main');
+  if (!mainImg) return;
+  const thumbs = document.querySelectorAll('[data-gallery-src]');
+
+  thumbs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      mainImg.src = btn.dataset.gallerySrc;
+      thumbs.forEach(t => t.classList.remove('app-gallery__thumb--active'));
+      btn.classList.add('app-gallery__thumb--active');
+    });
+  });
+})();
+
 (function initSidePanel() {
   const trigger  = document.getElementById('js-sp-trigger');
   const panel    = document.getElementById('js-side-panel');
