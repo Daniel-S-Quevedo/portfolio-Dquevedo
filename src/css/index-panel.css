@@ -11,7 +11,7 @@
   border-left: none;
   border-radius: 0 8px 8px 0;
   padding: 14px 10px;
-  cursor: pointer;
+  cursor: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: none;
   transition: color .2s, border-color .2s;
 }
 .idx-panel__close:hover { color: #fff; border-color: rgba(255,255,255,.3); }
@@ -121,7 +121,7 @@
   font-family: var(--font-sans);
   font-size: .8rem;
   font-weight: 500;
-  cursor: pointer;
+  cursor: none;
   transition: background .2s, border-color .2s, transform .15s;
   text-align: left;
 }
@@ -175,7 +175,7 @@
   font-family: var(--font-sans);
   font-size: .78rem;
   font-weight: 700;
-  cursor: pointer;
+  cursor: none;
   transition: background .2s, transform .15s;
 }
 .idx-panel__submit:hover:not(:disabled) { background: rgba(255,255,255,.88); transform: translateY(-1px); }

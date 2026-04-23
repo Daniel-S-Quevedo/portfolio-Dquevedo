@@ -291,7 +291,7 @@ ul {
     background 0.2s,
     transform 0.2s var(--ease-spring),
     height 0.2s var(--ease-spring);
-  cursor: pointer;
+  cursor: none;
 }
 
 .nav-dot:hover {
@@ -579,7 +579,7 @@ ul {
   flex-direction: column;
   gap: 6px;
   padding: 12px;
-  cursor: pointer;
+  cursor: none;
 }
 
 .hamburger:hover {
@@ -652,7 +652,7 @@ ul {
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.3rem;
   transition: color 0.15s, background 0.15s;
-  cursor: pointer;
+  cursor: none;
 }
 
 .mobile-menu__close:hover {
@@ -683,7 +683,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   transition: color 0.2s;
-  cursor: pointer;
+  cursor: none;
 }
 
 .mobile-menu__link:last-child {
@@ -715,7 +715,7 @@ ul {
   font-weight: 700;
   border-radius: 100px;
   transition: background 0.15s, transform 0.2s var(--ease-spring);
-  cursor: pointer;
+  cursor: none;
 }
 
 .mobile-menu__cta:hover {
@@ -1318,7 +1318,7 @@ ul {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   padding: 7px 16px;
-  cursor: pointer;
+  cursor: none;
   text-decoration: none;
   margin-top: 28px;
   transition:
@@ -1460,7 +1460,7 @@ ul {
   border-radius: 100px;
   padding: 5px 14px;
   transition: color 0.15s, border-color 0.2s, transform 0.15s;
-  cursor: default;
+  cursor: none;
 }
 
 .tag:hover {
@@ -2611,7 +2611,7 @@ ul {
   border-radius: 12px;
   background: rgba(255,255,255,.02);
   padding: 24px 20px;
-  cursor: pointer;
+  cursor: none;
   transition: border-color .2s, background .2s;
   display: flex;
   align-items: center;
@@ -2634,7 +2634,7 @@ ul {
   width: 100%;
   height: 100%;
   opacity: 0;
-  cursor: pointer;
+  cursor: none;
   z-index: 2;
 }
 
@@ -2754,7 +2754,7 @@ ul {
   align-items: center;
   justify-content: center;
   color: rgba(255,255,255,.35);
-  cursor: pointer;
+  cursor: none;
   flex-shrink: 0;
   transition: background .15s, color .15s;
 }
@@ -2803,7 +2803,7 @@ ul {
   border: none;
   border-radius: 10px;
   padding: 14px 24px;
-  cursor: pointer;
+  cursor: none;
   transition: background .2s, transform .15s, box-shadow .2s;
   white-space: nowrap;
 }
