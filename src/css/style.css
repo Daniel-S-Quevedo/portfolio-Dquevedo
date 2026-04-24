@@ -741,11 +741,11 @@ ul {
 /* ══ HERO ══ */
 .hero {
   position: relative;
-  height: 100svh;
-  min-height: 600px;
+  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   grid-template-rows: 1fr auto;
-  overflow: hidden; /* impede sobreposição com a seção seguinte */
+  overflow: hidden;
 }
 
 .hero__bg {
@@ -1893,12 +1893,6 @@ ul {
   :root {
     --container-pad: 20px;
     --space-section: 80px;
-  }
-
-  /* Hero: cresce para acomodar conteúdo em vez de cortar */
-  .hero {
-    height: auto;
-    min-height: 100svh;
   }
 
   /* Título menor para caber no mobile */
