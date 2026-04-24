@@ -745,7 +745,7 @@ ul {
   min-height: 100svh;
   display: grid;
   grid-template-rows: 1fr auto;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .hero__bg {
