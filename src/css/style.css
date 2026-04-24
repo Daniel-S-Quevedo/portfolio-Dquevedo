@@ -759,14 +759,16 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 72% 15%;
+  object-position: 68% 18%;
   display: block;
   filter: brightness(0.45) contrast(1.1);
+  transform: scale(0.72);
+  transform-origin: 68% top;
   transition: transform 8s var(--ease-out);
 }
 
 .hero:hover .hero__bg-img {
-  transform: scale(1.04);
+  transform: scale(0.75);
 }
 
 .hero__bg::after {
