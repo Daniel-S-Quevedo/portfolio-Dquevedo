@@ -884,7 +884,7 @@ ul {
 }
 
 .hero-metric {
-  padding: 28px 32px;
+  padding: 40px 32px 28px;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   transition: background 0.2s;
 }
